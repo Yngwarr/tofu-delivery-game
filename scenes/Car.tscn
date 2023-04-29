@@ -19,10 +19,12 @@ shape = SubResource("BoxShape3D_gtktg")
 [node name="frw" parent="." instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32, 0, 1.526)
 use_as_steering = true
+wheel_friction_slip = 1.2
 
 [node name="flw" parent="." instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32, 0, 1.526)
 use_as_steering = true
+wheel_friction_slip = 1.2
 
 [node name="wheelTruck" parent="flw" index="0"]
 transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -30,12 +32,12 @@ transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 [node name="rrw" parent="." instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32, 0, -1.252)
 use_as_traction = true
-wheel_friction_slip = 0.7
+wheel_friction_slip = 0.9
 
 [node name="rlw" parent="." instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32, 0, -1.252)
 use_as_traction = true
-wheel_friction_slip = 0.7
+wheel_friction_slip = 0.9
 
 [node name="wheelTruck" parent="rlw" index="0"]
 transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

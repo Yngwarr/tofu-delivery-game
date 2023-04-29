@@ -1,13 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://bcd7sg64p0ntd"]
 
 [ext_resource type="PackedScene" uid="uid://cdqld478wjboa" path="res://scenes/Car.tscn" id="1_ee4kg"]
-[ext_resource type="Texture2D" uid="uid://cfq7p7f1451pa" path="res://textures/proto_green.png" id="1_x61ai"]
+[ext_resource type="Texture2D" uid="uid://t3ljxgs3vynr" path="res://textures/proto_dark.png" id="1_gocvt"]
 [ext_resource type="Script" path="res://src/Speedometer.gd" id="3_euadt"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
+plane = Plane(0, 1, 0.15, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dqoq"]
-albedo_texture = ExtResource("1_x61ai")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv6ey"]
+albedo_texture = ExtResource("1_gocvt")
 uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qc7a3"]
@@ -35,7 +36,8 @@ sky = SubResource("Sky_6nmx0")
 shape = SubResource("WorldBoundaryShape3D_b63vk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-material_override = SubResource("StandardMaterial3D_2dqoq")
+transform = Transform3D(1, 0, 0, 0, 0.989016, -0.147809, 0, 0.147809, 0.989016, 0, -73.8039, 493.833)
+material_override = SubResource("StandardMaterial3D_gv6ey")
 mesh = SubResource("PlaneMesh_qc7a3")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
