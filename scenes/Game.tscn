@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcd7sg64p0ntd"]
+[gd_scene load_steps=9 format=3 uid="uid://bcd7sg64p0ntd"]
 
-[ext_resource type="PackedScene" path="res://scenes/Car.tscn" id="1_ee4kg"]
+[ext_resource type="PackedScene" uid="uid://cdqld478wjboa" path="res://scenes/Car.tscn" id="1_ee4kg"]
+[ext_resource type="Texture2D" uid="uid://cfq7p7f1451pa" path="res://textures/proto_green.png" id="1_x61ai"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dqoq"]
+albedo_texture = ExtResource("1_x61ai")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qc7a3"]
+size = Vector2(100, 100)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uvu5x"]
 sky_top_color = Color(0.286275, 0.341176, 0.984314, 1)
@@ -24,6 +32,10 @@ sky = SubResource("Sky_6nmx0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_b63vk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_2dqoq")
+mesh = SubResource("PlaneMesh_qc7a3")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.333363, 0.942799, 0, -0.942799, -0.333363, 0, 4.65373, 0)

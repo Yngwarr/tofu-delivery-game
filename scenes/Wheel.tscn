@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpn84vi24hyje"]
+
+[ext_resource type="Texture2D" uid="uid://t3ljxgs3vynr" path="res://textures/proto_dark.png" id="1_fg265"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqdgm"]
+albedo_texture = ExtResource("1_fg265")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tyqs8"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.2
+radial_segments = 16
+
+[node name="frw" type="VehicleWheel3D"]
+wheel_radius = 0.4
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rqdgm")
+mesh = SubResource("CylinderMesh_tyqs8")
