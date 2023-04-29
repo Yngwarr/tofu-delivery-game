@@ -1,50 +1,66 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdqld478wjboa"]
+[gd_scene load_steps=6 format=3 uid="uid://cdqld478wjboa"]
 
 [ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
-[ext_resource type="Texture2D" uid="uid://ct8dicomasmqm" path="res://textures/proto_purple.png" id="2_bjdnj"]
 [ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
 [ext_resource type="PackedScene" uid="uid://bpn84vi24hyje" path="res://scenes/Wheel.tscn" id="3_4m2kf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2xst"]
-albedo_texture = ExtResource("2_bjdnj")
-uv1_scale = Vector3(10, 10, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_j8hie"]
-size = Vector3(1.5, 0.5, 3)
+[ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="4_40kqm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gtktg"]
-size = Vector3(1.5, 0.5, 3)
+size = Vector3(2.116, 1.514, 5.292)
 
 [node name="Car" type="VehicleBody3D"]
+mass = 1000.0
 script = ExtResource("1_uwfxo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.215326, 0)
-material_override = SubResource("StandardMaterial3D_p2xst")
-mesh = SubResource("BoxMesh_j8hie")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.215, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.554762, 0)
 shape = SubResource("BoxShape3D_gtktg")
 
 [node name="frw" parent="." instance=ExtResource("3_4m2kf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0151, 0, 1.64508)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32, 0, 1.526)
 use_as_steering = true
 
 [node name="flw" parent="." instance=ExtResource("3_4m2kf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08489, 0, 1.64508)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32, 0, 1.526)
 use_as_steering = true
 
+[node name="wheelTruck" parent="flw" index="0"]
+transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
 [node name="rrw" parent="." instance=ExtResource("3_4m2kf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0151, 0, -1.54921)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32, 0, -1.252)
 use_as_traction = true
+wheel_friction_slip = 0.7
 
 [node name="rlw" parent="." instance=ExtResource("3_4m2kf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08489, 0, -1.54921)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32, 0, -1.252)
 use_as_traction = true
+wheel_friction_slip = 0.7
+
+[node name="wheelTruck" parent="rlw" index="0"]
+transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 script = ExtResource("2_gm2jt")
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-1, 0, -8.74228e-08, -3.51995e-08, 0.915361, 0.402635, 8.00234e-08, 0.402635, -0.915361, 0, 2.93411, -4.07703)
+transform = Transform3D(-1, -2.4869e-14, -8.74228e-08, -3.51995e-08, 0.915361, 0.402635, 8.00234e-08, 0.402635, -0.915361, -2.25604e-07, 3.97315, -6.43922)
+
+[node name="truckFlat" parent="." instance=ExtResource("4_40kqm")]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, -0.572637, 0)
+
+[node name="wheel_backLeft" parent="truckFlat/truckFlat2" index="1"]
+visible = false
+
+[node name="wheel_backRight" parent="truckFlat/truckFlat2" index="2"]
+visible = false
+
+[node name="wheel_frontLeft" parent="truckFlat/truckFlat2" index="3"]
+visible = false
+
+[node name="wheel_frontRight" parent="truckFlat/truckFlat2" index="4"]
+visible = false
+
+[editable path="flw"]
+[editable path="rlw"]
+[editable path="truckFlat"]

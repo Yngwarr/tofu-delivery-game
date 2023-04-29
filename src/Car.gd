@@ -1,13 +1,12 @@
 class_name Car
 extends VehicleBody3D
 
-@export_range(0, 1, 0.05) var steer_multiplyer := .4
-
 var steering_wheels: Array[VehicleWheel3D]
 var driving_wheels: Array[VehicleWheel3D]
 
-var max_rpm := 500
-var max_torque := 200
+var max_rpm := 2000
+var max_torque := 2000
+var steer_multiplier := .5
 
 func _ready():
 	# would've rather export arrays to fill in the inspector, but issue #62916
@@ -26,5 +25,5 @@ func _physics_process(delta):
 		wheel.engine_force = throttle * max_torque * (1 - wheel.get_rpm() / max_rpm)
 
 	steering = lerp(steering,
-		Input.get_axis("steer_right", "steer_left") * steer_multiplyer,
+		Input.get_axis("steer_right", "steer_left") * steer_multiplier,
 		5 * delta)
