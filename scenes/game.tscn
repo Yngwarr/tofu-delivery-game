@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnctayf4tqrfw"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5d6fioeqj2" path="res://scenes/car.tscn" id="1_yypi3"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uvu5x"]
+sky_top_color = Color(0.286275, 0.341176, 0.984314, 1)
+sky_horizon_color = Color(0.831373, 0.835294, 0.843137, 1)
+sky_cover_modulate = Color(0.831373, 0.831373, 0.831373, 1)
+ground_bottom_color = Color(0.0666667, 0.239216, 0.145098, 1)
+ground_curve = 0.0696443
+
+[sub_resource type="Sky" id="Sky_6nmx0"]
+sky_material = SubResource("ProceduralSkyMaterial_uvu5x")
+
+[sub_resource type="Environment" id="Environment_2sxos"]
+background_mode = 2
+sky = SubResource("Sky_6nmx0")
+
+[node name="Game" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_b63vk")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(0.0821646, 0.63335, -0.769491, 0, 0.772102, 0.635499, 0.996619, -0.0522155, 0.0634394, -5.26289, 5.04386, 2.3511)
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.333363, 0.942799, 0, -0.942799, -0.333363, 0, 4.65373, 0)
+
+[node name="Car" parent="." instance=ExtResource("1_yypi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45455, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2sxos")
