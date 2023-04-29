@@ -1,3 +1,4 @@
+class_name Car
 extends VehicleBody3D
 
 @export_range(0, 1, 0.05) var steer_multiplyer := .4

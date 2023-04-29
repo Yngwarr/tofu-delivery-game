@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcd7sg64p0ntd"]
+[gd_scene load_steps=10 format=3 uid="uid://bcd7sg64p0ntd"]
 
 [ext_resource type="PackedScene" uid="uid://cdqld478wjboa" path="res://scenes/Car.tscn" id="1_ee4kg"]
 [ext_resource type="Texture2D" uid="uid://cfq7p7f1451pa" path="res://textures/proto_green.png" id="1_x61ai"]
+[ext_resource type="Script" path="res://src/Speedometer.gd" id="3_euadt"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
 
@@ -45,3 +46,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45455, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2sxos")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Speedometer" type="Label" parent="HUD" node_paths=PackedStringArray("car")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -99.0
+offset_right = -54.0
+offset_bottom = -51.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 48
+text = "136 km/h"
+script = ExtResource("3_euadt")
+car = NodePath("../../Car")
