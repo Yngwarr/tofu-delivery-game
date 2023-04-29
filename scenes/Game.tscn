@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnctayf4tqrfw"]
+[gd_scene load_steps=6 format=3 uid="uid://bcd7sg64p0ntd"]
 
-[ext_resource type="PackedScene" uid="uid://b6t5d6fioeqj2" path="res://scenes/car.tscn" id="1_yypi3"]
+[ext_resource type="PackedScene" path="res://scenes/Car.tscn" id="1_ee4kg"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
 
@@ -25,13 +25,10 @@ sky = SubResource("Sky_6nmx0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_b63vk")
 
-[node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(0.0821646, 0.63335, -0.769491, 0, 0.772102, 0.635499, 0.996619, -0.0522155, 0.0634394, -5.26289, 5.04386, 2.3511)
-
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.333363, 0.942799, 0, -0.942799, -0.333363, 0, 4.65373, 0)
 
-[node name="Car" parent="." instance=ExtResource("1_yypi3")]
+[node name="Car" parent="." instance=ExtResource("1_ee4kg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45455, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

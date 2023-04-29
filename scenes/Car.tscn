@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6t5d6fioeqj2"]
+[gd_scene load_steps=6 format=3 uid="uid://b6t5d6fioeqj2"]
 
-[ext_resource type="Script" path="res://src/car.gd" id="1_u5lge"]
+[ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
+[ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8hie"]
 size = Vector3(1.5, 0.5, 3)
@@ -15,7 +16,7 @@ height = 0.2
 radial_segments = 16
 
 [node name="Car" type="VehicleBody3D"]
-script = ExtResource("1_u5lge")
+script = ExtResource("1_uwfxo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.215326, 0)
@@ -72,3 +73,9 @@ damping_relaxation = 2.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="blw"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_tyqs8")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+script = ExtResource("2_gm2jt")
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(-1, 0, -8.74228e-08, -3.51995e-08, 0.915361, 0.402635, 8.00234e-08, 0.402635, -0.915361, 0, 2.93411, -4.07703)
