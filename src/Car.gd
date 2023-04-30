@@ -10,7 +10,13 @@ var max_torque := 2000
 var steer_multiplier := .5
 var steer_smoothness := 5.0
 
+var respawn_location: Vector3
+var resetting = false
+
 func _ready():
+	add_to_group('player')
+	respawn_location = global_position
+
 	# would've rather export arrays to fill in the inspector, but issue #62916
 	# still persists in Godot 4.0.2
 	for c in get_children():
@@ -24,6 +30,18 @@ func _ready():
 			driving_wheels.append(c)
 		if c.use_as_steering:
 			steering_wheels.append(c)
+
+func _process(_delta):
+	if Input.is_action_just_pressed("reset"):
+		global_position = respawn_location
+		global_rotation = Vector3.ZERO
+		resetting = true
+
+func _integrate_forces(_state):
+	if !resetting: return
+
+	resetting = false
+	linear_velocity = Vector3.ZERO
 
 func _physics_process(delta):
 	var throttle: float = Input.get_axis("brake", "throttle")

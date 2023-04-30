@@ -411,10 +411,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.4055
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.6864, 0, 82.5992)
 
 [node name="RoadEnd4" parent="." instance=ExtResource("3_mxkuk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89377, 0, 87.4077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89377, 0, 86.9077)
 
 [node name="RoadEnd5" parent="." instance=ExtResource("3_mxkuk")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.89377, 0, 86.4621)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.89377, 0, 85.9621)
 
 [node name="Straight70" parent="." instance=ExtResource("1_obgic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89643, 3.8147e-07, 86.4103)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89643, 3.8147e-07, 85.9103)

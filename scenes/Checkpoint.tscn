@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://n7e5jxettdli"]
+[gd_scene load_steps=11 format=3 uid="uid://n7e5jxettdli"]
 
 [ext_resource type="Script" path="res://src/Checkpoint.gd" id="1_ai2j0"]
 
@@ -33,6 +33,78 @@ ring_segments = 4
 height = 7.98089
 radius = 2.63758
 
+[sub_resource type="Animation" id="Animation_0yiir"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.482968, 8.57419),
+"update": 0,
+"values": [5.0, 20.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.133972, 1),
+"update": 0,
+"values": [6.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_urmvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l0jqe"]
+_data = {
+"RESET": SubResource("Animation_urmvx"),
+"disappear": SubResource("Animation_0yiir")
+}
+
 [node name="Checkpoint" type="Area3D"]
 script = ExtResource("1_ai2j0")
 
@@ -56,3 +128,8 @@ light_color = Color(1, 1, 0, 1)
 light_energy = 6.0
 light_indirect_energy = 6.0
 omni_attenuation = 0.297302
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l0jqe")
+}
