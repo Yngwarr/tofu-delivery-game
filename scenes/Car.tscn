@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdqld478wjboa"]
+[gd_scene load_steps=9 format=3 uid="uid://cdqld478wjboa"]
 
 [ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
 [ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
@@ -7,12 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="4_40kqm"]
 [ext_resource type="PackedScene" uid="uid://yj1ac53ymcho" path="res://scenes/tofu_box.tscn" id="6_jm0d0"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yjs3a"]
+bounce = 0.5
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itm1b"]
 points = PackedVector3Array(0.75, 0.599961, -0.750199, 0.75, 0.499932, -0.750199, 0.75, 0.599961, -0.850184, 0.449883, 1.1, 0.0499463, 0.599941, 0.599961, 1.44499, 0.649863, 0.199951, 1.345, 0.75, 0.499932, -0.850184, 0.649863, 0, 1.345, 0.649863, 0.199951, -1.10001, 0.620644, 0.199951, -1.17072, 0.549873, 0.399902, -1.15014, 0.449883, 1.1, -0.450243, -0.450029, 1.1, 0.0499463, 0.549873, 0.599961, 1.49511, 0.599941, 0.499932, 1.44499, 0.620644, 0.199951, 1.41571, 0.649863, 0, -1.10001, 0.620644, 0, 1.41571, 0.620644, 0, -1.17072, 0.549873, 0.199951, -1.2, -0.55002, 0.399902, -1.15014, -0.450029, 1.1, -0.450243, -0.600088, 0.599961, 1.44684, -0.551782, 0.599961, 1.49511, -0.75, 0.599961, -0.750199, 0.549873, 0.499932, 1.49511, 0.549873, 0, 1.44499, 0.549873, 0, -1.2, -0.55002, 0.199951, -1.2, -0.620791, 0.199951, -1.17072, -0.75, 0.599961, -0.850184, -0.65001, 0.199951, 1.345, -0.620791, 0.199951, 1.41571, -0.600088, 0.499932, 1.44684, -0.551782, 0.499932, 1.49511, -0.75, 0.499932, -0.750199, -0.55002, 0, 1.44499, -0.55002, 0, -1.2, -0.620791, 0, -1.17072, -0.65001, 0.199951, -1.10001, -0.75, 0.499932, -0.850184, -0.65001, 0, 1.345, -0.620791, 0, 1.41571, -0.65001, 0, -1.10001)
 
 [node name="Car" type="VehicleBody3D"]
 collision_mask = 2
 mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_yjs3a")
+continuous_cd = true
 script = ExtResource("1_uwfxo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -63,7 +68,6 @@ transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 script = ExtResource("2_gm2jt")
-rotation_threshold = 10
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(-1, -2.4869e-14, -8.74228e-08, -3.51995e-08, 0.915361, 0.402635, 8.00234e-08, 0.402635, -0.915361, -2.25604e-07, 3.97315, -6.43922)
