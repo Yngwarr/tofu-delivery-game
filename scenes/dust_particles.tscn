@@ -18,6 +18,7 @@ rings = 1
 
 [node name="DustParticles" type="GPUParticles3D"]
 transparency = 0.8
+cast_shadow = 0
 amount = 20
 interpolate = false
 fract_delta = false
