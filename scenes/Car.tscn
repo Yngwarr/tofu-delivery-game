@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
 [ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
-[ext_resource type="PackedScene" uid="uid://bak3noash7osy" path="res://scenes/dust_particles.tscn" id="2_vx4ad"]
+[ext_resource type="PackedScene" uid="uid://bx7hkevux64wu" path="res://scenes/dust_particles.tscn" id="2_vx4ad"]
 [ext_resource type="PackedScene" uid="uid://bpn84vi24hyje" path="res://scenes/Wheel.tscn" id="3_4m2kf"]
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="4_40kqm"]
 [ext_resource type="PackedScene" uid="uid://bweum6e7fpest" path="res://scenes/tofu_box.tscn" id="6_jm0d0"]
@@ -31,28 +31,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31942, -0.582566, -1.28404
 [node name="rlw_dust" parent="." instance=ExtResource("2_vx4ad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30213, -0.582566, -1.28404)
 
-[node name="frw" parent="." instance=ExtResource("3_4m2kf")]
+[node name="frw" parent="." node_paths=PackedStringArray("smoke") instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32, 0, 1.526)
 use_as_steering = true
 wheel_friction_slip = 1.2
+smoke = NodePath("../frw_dust")
 
-[node name="flw" parent="." instance=ExtResource("3_4m2kf")]
+[node name="flw" parent="." node_paths=PackedStringArray("smoke") instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32, 0, 1.526)
 use_as_steering = true
 wheel_friction_slip = 1.2
+smoke = NodePath("../flw_dust")
 
 [node name="wheelTruck" parent="flw" index="0"]
 transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="rrw" parent="." instance=ExtResource("3_4m2kf")]
+[node name="rrw" parent="." node_paths=PackedStringArray("smoke") instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32, 0, -1.252)
 use_as_traction = true
 wheel_friction_slip = 1.2
+smoke = NodePath("../rrw_dust")
 
-[node name="rlw" parent="." instance=ExtResource("3_4m2kf")]
+[node name="rlw" parent="." node_paths=PackedStringArray("smoke") instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32, 0, -1.252)
 use_as_traction = true
 wheel_friction_slip = 1.2
+smoke = NodePath("../rlw_dust")
 
 [node name="wheelTruck" parent="rlw" index="0"]
 transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
