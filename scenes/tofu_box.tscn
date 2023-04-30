@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bweum6e7fpest"]
+
+[ext_resource type="PackedScene" uid="uid://nko00vg764c6" path="res://models/tofu.glb" id="1_1gh0k"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2ihff"]
+points = PackedVector3Array(-0.529508, -0.3276, -0.554864, 0.501276, 0.280745, 0.526638, -0.503762, 0.281428, 0.527852, 0.528178, -0.3276, 0.554864, 0.501276, 0.280745, -0.526638, -0.529508, -0.3276, 0.554864, 0.528178, -0.3276, -0.554864, -0.503762, 0.281428, -0.527852)
+
+[node name="TofuBox" type="RigidBody3D"]
+
+[node name="tofu" parent="." instance=ExtResource("1_1gh0k")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0902457, 0.327619, 0.0829421)
+shape = SubResource("ConvexPolygonShape3D_2ihff")

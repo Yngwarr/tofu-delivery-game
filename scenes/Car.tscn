@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdqld478wjboa"]
+[gd_scene load_steps=8 format=3 uid="uid://cdqld478wjboa"]
 
 [ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
 [ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
 [ext_resource type="PackedScene" uid="uid://bak3noash7osy" path="res://scenes/dust_particles.tscn" id="2_vx4ad"]
 [ext_resource type="PackedScene" uid="uid://bpn84vi24hyje" path="res://scenes/Wheel.tscn" id="3_4m2kf"]
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="4_40kqm"]
+[ext_resource type="PackedScene" uid="uid://bweum6e7fpest" path="res://scenes/tofu_box.tscn" id="6_jm0d0"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4536q"]
 points = PackedVector3Array(0.75, 0.599961, -0.750199, 0.75, 0.499932, -0.750199, 0.75, 0.599961, -0.850184, 0.449883, 1.1, 0.0499463, 0.599941, 0.599961, 1.44499, 0.649863, 0.199951, 1.345, 0.75, 0.499932, -0.850184, 0.649863, 0, 1.345, 0.649863, 0.199951, -1.10001, 0.620644, 0.199951, -1.17072, 0.549873, 0.399902, -1.15014, 0.449883, 1.1, -0.450243, -0.450029, 1.1, 0.0499463, 0.549873, 0.599961, 1.49511, 0.599941, 0.499932, 1.44499, 0.620644, 0.199951, 1.41571, 0.649863, 0, -1.10001, 0.620644, 0, 1.41571, 0.620644, 0, -1.17072, 0.549873, 0.199951, -1.2, -0.55002, 0.399902, -1.15014, -0.450029, 1.1, -0.450243, -0.600088, 0.599961, 1.44684, -0.551782, 0.599961, 1.49511, -0.75, 0.599961, -0.750199, 0.549873, 0.499932, 1.49511, 0.549873, 0, 1.44499, 0.549873, 0, -1.2, -0.55002, 0.199951, -1.2, -0.620791, 0.199951, -1.17072, -0.75, 0.599961, -0.850184, -0.65001, 0.199951, 1.345, -0.620791, 0.199951, 1.41571, -0.600088, 0.499932, 1.44684, -0.551782, 0.499932, 1.49511, -0.75, 0.499932, -0.750199, -0.55002, 0, 1.44499, -0.55002, 0, -1.2, -0.620791, 0, -1.17072, -0.65001, 0.199951, -1.10001, -0.75, 0.499932, -0.850184, -0.65001, 0, 1.345, -0.620791, 0, 1.41571, -0.65001, 0, -1.10001)
@@ -76,6 +77,12 @@ visible = false
 
 [node name="wheel_frontRight" parent="truckFlat/truckFlat2" index="4"]
 visible = false
+
+[node name="TofuBox1" parent="." instance=ExtResource("6_jm0d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.639547, -0.594241)
+
+[node name="TofuBox2" parent="." instance=ExtResource("6_jm0d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, -1.8)
 
 [editable path="flw"]
 [editable path="rlw"]
