@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcd7sg64p0ntd"]
+[gd_scene load_steps=11 format=3 uid="uid://ucubnjga7flw"]
 
 [ext_resource type="PackedScene" uid="uid://cdqld478wjboa" path="res://scenes/Car.tscn" id="1_ee4kg"]
 [ext_resource type="Texture2D" uid="uid://t3ljxgs3vynr" path="res://textures/proto_dark.png" id="1_gocvt"]
 [ext_resource type="Script" path="res://src/Speedometer.gd" id="3_euadt"]
+[ext_resource type="PackedScene" uid="uid://dl1a1tmrmtdls" path="res://scenes/Road.tscn" id="4_mpevo"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
 plane = Plane(0, 1, 0.15, 0)
@@ -30,25 +31,6 @@ sky = SubResource("Sky_6nmx0")
 
 [node name="Game" type="Node3D"]
 
-[node name="Floor" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("WorldBoundaryShape3D_b63vk")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 0.989016, -0.147809, 0, 0.147809, 0.989016, 0, -73.8039, 493.833)
-material_override = SubResource("StandardMaterial3D_gv6ey")
-mesh = SubResource("PlaneMesh_qc7a3")
-
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.333363, 0.942799, 0, -0.942799, -0.333363, 0, 4.65373, 0)
-
-[node name="Car" parent="." instance=ExtResource("1_ee4kg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45455, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_2sxos")
-
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Speedometer" type="Label" parent="HUD" node_paths=PackedStringArray("car")]
@@ -69,3 +51,26 @@ theme_override_font_sizes/font_size = 48
 text = "136 km/h"
 script = ExtResource("3_euadt")
 car = NodePath("../../Car")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_b63vk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 0.989016, -0.147809, 0, 0.147809, 0.989016, 0, -73.8039, 493.833)
+material_override = SubResource("StandardMaterial3D_gv6ey")
+mesh = SubResource("PlaneMesh_qc7a3")
+
+[node name="Car" parent="." instance=ExtResource("1_ee4kg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.864577, 0)
+
+[node name="Road" parent="." instance=ExtResource("4_mpevo")]
+transform = Transform3D(14, 0, 0, 0, 13.8462, -2.06933, 0, 2.06933, 13.8462, 0, 0, 0)
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.333363, 0.942799, 0, -0.942799, -0.333363, 0, 4.65373, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2sxos")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwasf57bhlsve"]
+
+[ext_resource type="PackedScene" uid="uid://v2vkbymg1sy0" path="res://models/roads/road_slant.glb" id="1_7pkm5"]
+[ext_resource type="PackedScene" uid="uid://bpkkflvxliytf" path="res://models/roads/road_slantBarrier.glb" id="2_l6frf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tn2as"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0.27, -0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.27, 0.5, 0.5, 0.0199804, -0.5, 0.5, 0, 0.5, 0.5, 0.0199804, 0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hccf5"]
+data = PackedVector3Array(0.5, 0, -0.5, -0.5, 0.25, -0.5, -0.5, 0.25, -0.45, -0.5, 0.25, -0.45, 0.5, 0, -0.45, 0.5, 0, -0.5, -0.5, 0.33, -0.47, -0.5, 0.33, -0.5, 0.5, 0.08, -0.5, 0.5, 0.08, -0.5, 0.5, 0.08, -0.47, -0.5, 0.33, -0.47, -0.5, 0.25, -0.5, 0.5, 0, -0.5, 0.5, 0.08, -0.5, 0.5, 0.08, -0.5, -0.5, 0.33, -0.5, -0.5, 0.25, -0.5, -0.5, 0.33, -0.47, -0.5, 0.25, -0.45, -0.5, 0.25, -0.5, -0.5, 0.25, -0.5, -0.5, 0.33, -0.5, -0.5, 0.33, -0.47, 0.5, 0, 0.45, 0.5, 0, 0.5, 0.5, 0.08, 0.5, 0.5, 0.08, 0.5, 0.5, 0.08, 0.47, 0.5, 0, 0.45, -0.5, 0.33, 0.47, -0.5, 0.33, 0.5, -0.5, 0.25, 0.5, -0.5, 0.25, 0.5, -0.5, 0.25, 0.45, -0.5, 0.33, 0.47, -0.5, 0.25, 0.45, -0.5, 0.25, 0.5, 0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 0, 0.45, -0.5, 0.25, 0.45, 0.5, 0.08, 0.5, -0.5, 0.33, 0.5, -0.5, 0.33, 0.47, -0.5, 0.33, 0.47, 0.5, 0.08, 0.47, 0.5, 0.08, 0.5, -0.5, 0.25, 0.45, 0.5, 0, 0.45, 0.5, 0.08, 0.47, 0.5, 0.08, 0.47, -0.5, 0.33, 0.47, -0.5, 0.25, 0.45, 0.5, 0.08, 0.5, 0.5, 0, 0.5, -0.5, 0.25, 0.5, -0.5, 0.25, 0.5, -0.5, 0.33, 0.5, 0.5, 0.08, 0.5, 0.5, 0, -0.5, 0.5, 0, -0.45, 0.5, 0.08, -0.47, 0.5, 0.08, -0.47, 0.5, 0.08, -0.5, 0.5, 0, -0.5, 0.5, 0.08, -0.47, 0.5, 0, -0.45, -0.5, 0.25, -0.45, -0.5, 0.25, -0.45, -0.5, 0.33, -0.47, 0.5, 0.08, -0.47)
+
+[node name="Slant" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0727608, 0, -0.190267)
+collision_layer = 2
+
+[node name="Floor" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.2)
+shape = SubResource("ConvexPolygonShape3D_tn2as")
+
+[node name="Barrier" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.2)
+shape = SubResource("ConcavePolygonShape3D_hccf5")
+
+[node name="road_slant" parent="." instance=ExtResource("1_7pkm5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -0.55)
+
+[node name="road_slantBarrier" parent="." instance=ExtResource("2_l6frf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -0.55)

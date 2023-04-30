@@ -38,6 +38,11 @@ steer_right={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="player_car"
+3d_physics/layer_2="road_and_barriers"
+
 [physics]
 
 common/physics_ticks_per_second=120

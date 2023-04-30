@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bpn84vi24hyje" path="res://scenes/Wheel.tscn" id="3_4m2kf"]
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="4_40kqm"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gtktg"]
-size = Vector3(2.116, 1.514, 5.292)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4536q"]
+points = PackedVector3Array(0.75, 0.599961, -0.750199, 0.75, 0.499932, -0.750199, 0.75, 0.599961, -0.850184, 0.449883, 1.1, 0.0499463, 0.599941, 0.599961, 1.44499, 0.649863, 0.199951, 1.345, 0.75, 0.499932, -0.850184, 0.649863, 0, 1.345, 0.649863, 0.199951, -1.10001, 0.620644, 0.199951, -1.17072, 0.549873, 0.399902, -1.15014, 0.449883, 1.1, -0.450243, -0.450029, 1.1, 0.0499463, 0.549873, 0.599961, 1.49511, 0.599941, 0.499932, 1.44499, 0.620644, 0.199951, 1.41571, 0.649863, 0, -1.10001, 0.620644, 0, 1.41571, 0.620644, 0, -1.17072, 0.549873, 0.199951, -1.2, -0.55002, 0.399902, -1.15014, -0.450029, 1.1, -0.450243, -0.600088, 0.599961, 1.44684, -0.551782, 0.599961, 1.49511, -0.75, 0.599961, -0.750199, 0.549873, 0.499932, 1.49511, 0.549873, 0, 1.44499, 0.549873, 0, -1.2, -0.55002, 0.199951, -1.2, -0.620791, 0.199951, -1.17072, -0.75, 0.599961, -0.850184, -0.65001, 0.199951, 1.345, -0.620791, 0.199951, 1.41571, -0.600088, 0.499932, 1.44684, -0.551782, 0.499932, 1.49511, -0.75, 0.499932, -0.750199, -0.55002, 0, 1.44499, -0.55002, 0, -1.2, -0.620791, 0, -1.17072, -0.65001, 0.199951, -1.10001, -0.75, 0.499932, -0.850184, -0.65001, 0, 1.345, -0.620791, 0, 1.41571, -0.65001, 0, -1.10001)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_enm8k"]
 lifetime_randomness = 0.1
@@ -32,12 +32,13 @@ radial_segments = 8
 rings = 4
 
 [node name="Car" type="VehicleBody3D"]
+collision_mask = 2
 mass = 1000.0
 script = ExtResource("1_uwfxo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.554762, 0)
-shape = SubResource("BoxShape3D_gtktg")
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 3.70113e-08, -0.172637, 0.245114)
+shape = SubResource("ConvexPolygonShape3D_4536q")
 
 [node name="frw" parent="." instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32, 0, 1.526)
@@ -55,12 +56,12 @@ transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 [node name="rrw" parent="." instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32, 0, -1.252)
 use_as_traction = true
-wheel_friction_slip = 0.9
+wheel_friction_slip = 1.2
 
 [node name="rlw" parent="." instance=ExtResource("3_4m2kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32, 0, -1.252)
 use_as_traction = true
-wheel_friction_slip = 0.9
+wheel_friction_slip = 1.2
 
 [node name="wheelTruck" parent="rlw" index="0"]
 transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
