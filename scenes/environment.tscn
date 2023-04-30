@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyqy5iu81tmp5"]
+
+[ext_resource type="PackedScene" uid="uid://rho23x400wgu" path="res://models/nature/flower_yellowB.glb" id="1_5kdma"]
+[ext_resource type="PackedScene" uid="uid://bqjjbebcjha2v" path="res://models/nature/flower_yellowA.glb" id="2_mwbv7"]
+[ext_resource type="PackedScene" uid="uid://bdtcn2vhbgtv8" path="res://models/nature/flower_yellowC.glb" id="3_crqqo"]
+[ext_resource type="PackedScene" uid="uid://c5s8gac7ayvfl" path="res://models/nature/grass.glb" id="4_gdruv"]
+[ext_resource type="PackedScene" uid="uid://dd41unddnjo6" path="res://models/nature/grass_large.glb" id="5_0tfqb"]
+
+[node name="Environment" type="Node"]
+
+[node name="flower_yellowB" parent="." instance=ExtResource("1_5kdma")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.3, 0, 0)
+
+[node name="flower_yellowA" parent="." instance=ExtResource("2_mwbv7")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0.363056)
+
+[node name="flower_yellowC" parent="." instance=ExtResource("3_crqqo")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+
+[node name="grass" parent="." instance=ExtResource("4_gdruv")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -0.312275, 0, 0)
+
+[node name="grass2" parent="." instance=ExtResource("4_gdruv")]
+transform = Transform3D(37.0824, 0, -33.5395, 0, 50, 0, 33.5395, 0, 37.0824, 0.128945, 0, 0.328168)
+
+[node name="grass_large" parent="." instance=ExtResource("5_0tfqb")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.0175442, 0, -0.282324)
