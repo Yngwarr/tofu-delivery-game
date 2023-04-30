@@ -96,6 +96,7 @@ transform = Transform3D(14, 0, 0, 0, 13.8462, -2.06933, 0, 2.06933, 13.8462, 0, 
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.333363, 0.942799, 0, -0.942799, -0.333363, 0, 4.65373, 0)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2sxos")

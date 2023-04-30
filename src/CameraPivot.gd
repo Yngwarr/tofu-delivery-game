@@ -1,13 +1,14 @@
 extends Node3D
 
 @export_range(1, 10, .1) var smoothness = 2.5
+@export_range(.1, 20, .1) var rotation_threshold = 1
 
 var direction = Vector3.FORWARD
 
 func _physics_process(delta):
 	var current_velocity: Vector3 = get_parent().get_linear_velocity()
 	current_velocity.y = 0
-	if current_velocity.length_squared() > 1:
+	if current_velocity.length_squared() > rotation_threshold:
 		direction = lerp(direction, -current_velocity.normalized(), smoothness * delta)
 	global_transform.basis = direction_to_rotation(direction)
 

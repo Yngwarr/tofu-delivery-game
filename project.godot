@@ -42,6 +42,7 @@ steer_right={
 
 3d_physics/layer_1="player_car"
 3d_physics/layer_2="road_and_barriers"
+3d_physics/layer_3="tofu"
 
 [physics]
 
