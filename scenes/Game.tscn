@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ucubnjga7flw"]
+[gd_scene load_steps=13 format=3 uid="uid://ucubnjga7flw"]
 
 [ext_resource type="PackedScene" uid="uid://cdqld478wjboa" path="res://scenes/Car.tscn" id="1_ee4kg"]
 [ext_resource type="Texture2D" uid="uid://t3ljxgs3vynr" path="res://textures/proto_dark.png" id="1_gocvt"]
 [ext_resource type="Script" path="res://src/Speedometer.gd" id="3_euadt"]
 [ext_resource type="PackedScene" uid="uid://dl1a1tmrmtdls" path="res://scenes/Road.tscn" id="4_mpevo"]
+[ext_resource type="Texture2D" uid="uid://cmj4se5epwa5t" path="res://textures/speedometer.png" id="5_8lsma"]
+[ext_resource type="Texture2D" uid="uid://calurnr5vmja1" path="res://textures/Arrow.png" id="6_6458a"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
 plane = Plane(0, 1, 0.15, 0)
@@ -33,22 +35,33 @@ sky = SubResource("Sky_6nmx0")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
+[node name="SpeedometerBG" type="Sprite2D" parent="HUD"]
+position = Vector2(983, 532)
+scale = Vector2(0.856522, 0.856522)
+texture = ExtResource("5_8lsma")
+
+[node name="Arrow" type="Sprite2D" parent="HUD/SpeedometerBG"]
+scale = Vector2(1.16751, 1.16751)
+texture = ExtResource("6_6458a")
+offset = Vector2(0, 30)
+flip_v = true
+
 [node name="Speedometer" type="Label" parent="HUD" node_paths=PackedStringArray("car")]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -197.0
-offset_top = -99.0
-offset_right = -54.0
-offset_bottom = -51.0
+offset_left = -153.0
+offset_top = -105.0
+offset_right = -20.0
+offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 48
-text = "136 km/h"
+text = "136"
 script = ExtResource("3_euadt")
 car = NodePath("../../Car")
 
