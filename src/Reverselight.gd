@@ -1,0 +1,2 @@
+class_name Reverselight
+extends OmniLight3D

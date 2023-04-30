@@ -1,0 +1,2 @@
+class_name Stoplight
+extends OmniLight3D

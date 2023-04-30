@@ -8,5 +8,6 @@ omni_range = 0.277054
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.999709, -0.0240962, -0.0010858, 0.0240962, 0.995657, 0.0899282, -0.00108585, -0.0899281, 0.995948, 0, 0, 0)
 light_energy = 16.0
+shadow_enabled = true
 spot_range = 21.2694
 spot_angle = 22.8779

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdqld478wjboa"]
+[gd_scene load_steps=12 format=3 uid="uid://b3586j135yfbf"]
 
 [ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
 [ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="4_40kqm"]
 [ext_resource type="PackedScene" uid="uid://yj1ac53ymcho" path="res://scenes/tofu_box.tscn" id="6_jm0d0"]
 [ext_resource type="PackedScene" uid="uid://clhlk046se2ui" path="res://scenes/Headlight.tscn" id="7_8gh1b"]
-[ext_resource type="PackedScene" uid="uid://cknmrcua4fnxu" path="res://scenes/taillight.tscn" id="8_nhpnl"]
+[ext_resource type="PackedScene" uid="uid://cknmrcua4fnxu" path="res://scenes/Taillight.tscn" id="8_nhpnl"]
+[ext_resource type="PackedScene" uid="uid://by6nefytksqll" path="res://scenes/Stoplight.tscn" id="9_tskr5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yjs3a"]
 bounce = 0.5
@@ -104,6 +105,12 @@ transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 0, 0.978148, 0.207912, 8.
 
 [node name="Taillight2" parent="." instance=ExtResource("8_nhpnl")]
 transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 1.76123e-16, 0.978148, 0.207912, 8.74228e-08, 0.207912, -0.978148, 0.859563, 0.716294, -2.73692)
+
+[node name="Stoplight" parent="." instance=ExtResource("9_tskr5")]
+transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 1.76123e-16, 0.978148, 0.207912, 8.74228e-08, 0.207912, -0.978148, -1.01578, 0.759396, -2.72418)
+
+[node name="Stoplight2" parent="." instance=ExtResource("9_tskr5")]
+transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 1.76123e-16, 0.978148, 0.207912, 8.74228e-08, 0.207912, -0.978148, 1.03006, 0.759396, -2.72418)
 
 [editable path="flw"]
 [editable path="rlw"]

@@ -55,3 +55,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05278, 0)
 light_color = Color(1, 1, 0, 1)
 light_energy = 6.0
 light_indirect_energy = 6.0
+omni_attenuation = 0.297302
