@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdqld478wjboa"]
+[gd_scene load_steps=8 format=3 uid="uid://cdqld478wjboa"]
 
 [ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
 [ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
@@ -7,6 +7,29 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gtktg"]
 size = Vector3(2.116, 1.514, 5.292)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_enm8k"]
+lifetime_randomness = 0.1
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.1, 0.1)
+direction = Vector3(0, 0.1, -1)
+spread = 1.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_max = 2.0
+scale_min = 0.1
+scale_max = 0.5
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_euhr6"]
+lightmap_size_hint = Vector2i(3, 2)
+radius = 0.1
+height = 0.1
+radial_segments = 8
+rings = 4
 
 [node name="Car" type="VehicleBody3D"]
 mass = 1000.0
@@ -62,6 +85,16 @@ visible = false
 
 [node name="wheel_frontRight" parent="truckFlat/truckFlat2" index="4"]
 visible = false
+
+[node name="DustParticles" type="GPUParticles3D" parent="truckFlat"]
+transform = Transform3D(0.99829, 0, 0.0584528, 0, 1, 0, 0.0584528, 0, -0.99829, 0.0599854, 0.142145, 1.33197)
+amount = 50
+explosiveness = 0.5
+interpolate = false
+fract_delta = false
+visibility_aabb = AABB(0, 0, 0, 0, 0.1, 0)
+process_material = SubResource("ParticleProcessMaterial_enm8k")
+draw_pass_1 = SubResource("SphereMesh_euhr6")
 
 [editable path="flw"]
 [editable path="rlw"]
