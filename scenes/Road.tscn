@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl1a1tmrmtdls"]
+[gd_scene load_steps=13 format=3 uid="uid://dl1a1tmrmtdls"]
 
 [ext_resource type="PackedScene" uid="uid://cxf40aqb317g1" path="res://scenes/Tiles/Straight.tscn" id="1_obgic"]
 [ext_resource type="PackedScene" uid="uid://bsaygvc4agd7b" path="res://scenes/Tiles/Curve.tscn" id="2_5rekq"]
 [ext_resource type="PackedScene" uid="uid://df3tap6by0nhl" path="res://scenes/Tiles/RoadEnd.tscn" id="3_mxkuk"]
 [ext_resource type="PackedScene" uid="uid://pq6mqbn67q6g" path="res://scenes/Tiles/CurveIntersection.tscn" id="4_qlsjh"]
-[ext_resource type="PackedScene" uid="uid://dwasf57bhlsve" path="res://scenes/Tiles/Slant.tscn" id="5_b2d1b"]
+[ext_resource type="PackedScene" uid="uid://c01icsa7oa1di" path="res://scenes/Tiles/SlantCurve.tscn" id="5_q52e3"]
+[ext_resource type="PackedScene" uid="uid://dup430n45f5wf" path="res://scenes/Tiles/Split.tscn" id="6_1vvf0"]
+[ext_resource type="PackedScene" uid="uid://cre0iacwascch" path="res://scenes/Tiles/Bend.tscn" id="7_ccqvn"]
+[ext_resource type="PackedScene" uid="uid://dye170vhmkbkc" path="res://scenes/Tiles/Roundabout.tscn" id="8_ssjtr"]
+[ext_resource type="PackedScene" uid="uid://r0l28e0o0cne" path="res://scenes/Tiles/SideEntry.tscn" id="9_aonsd"]
+[ext_resource type="PackedScene" uid="uid://c0v6emcogc4bf" path="res://scenes/Tiles/Side.tscn" id="10_gsjuy"]
+[ext_resource type="PackedScene" uid="uid://c41244fj40lm4" path="res://scenes/Tiles/SideExit.tscn" id="11_fn107"]
+[ext_resource type="PackedScene" uid="uid://dwasf57bhlsve" path="res://scenes/Tiles/Slant.tscn" id="12_c6csp"]
 
 [node name="Road" type="Node3D"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -34,5 +41,380 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.2280
 [node name="RoadEnd2" parent="." instance=ExtResource("3_mxkuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.72803, 0, 4.49393)
 
-[node name="Slant" parent="." instance=ExtResource("5_b2d1b")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.02698, 0, 7.094)
+[node name="SlantCurve" parent="." instance=ExtResource("5_q52e3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.028, 0, 8.093)
+
+[node name="Straight5" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22901, 0.5, 7.9893)
+
+[node name="Straight6" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22901, 0.5, 8.9631)
+
+[node name="Straight7" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22901, 0.5, 9.95194)
+
+[node name="Split" parent="." instance=ExtResource("6_1vvf0")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 4.1278, 0.5, 10.6435)
+
+[node name="Curve2" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72772, 0.5, 11.94)
+
+[node name="Straight8" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72854, 0.5, 11.9428)
+
+[node name="Straight9" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72854, 0.5, 12.9223)
+
+[node name="Straight10" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72854, 0.5, 13.9147)
+
+[node name="Bend" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.72643, 0.5, 13.9394)
+
+[node name="Bend2" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72826, 0.5, 14.9147)
+
+[node name="Bend3" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.72472, 0.5, 15.9156)
+
+[node name="SlantCurve2" parent="." instance=ExtResource("5_q52e3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.925, 0, 15.816)
+
+[node name="SlantCurve3" parent="." instance=ExtResource("5_q52e3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.92364, 0, 22.7599)
+
+[node name="Straight11" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72634, 0.5, 13.9391)
+
+[node name="Straight12" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72634, 0.5, 14.9353)
+
+[node name="Straight13" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72634, 0.5, 15.9174)
+
+[node name="Straight14" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72634, 0.5, 16.8897)
+
+[node name="Curve3" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.227, 0.5, 19.374)
+
+[node name="Curve5" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.22955, 0.5, 19.374)
+
+[node name="Straight15" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72447, 0, 17.904)
+
+[node name="Straight16" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72447, 0, 18.9035)
+
+[node name="Curve4" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72407, 0, 19.8996)
+
+[node name="Straight17" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.22686, 0.5, 19.3744)
+
+[node name="Curve6" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.72287, 0, 21.8999)
+
+[node name="Straight18" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72306, 0, 21.8941)
+
+[node name="Straight19" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72306, 0, 22.8793)
+
+[node name="Straight20" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72306, 0, 23.8596)
+
+[node name="Straight21" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72306, 0, 24.849)
+
+[node name="Straight25" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72428, 0, 24.849)
+
+[node name="Straight26" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72428, 0, 25.8512)
+
+[node name="Straight27" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72428, 0, 26.8106)
+
+[node name="Straight22" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72306, 0, 25.8496)
+
+[node name="Straight23" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72306, 0, 26.8119)
+
+[node name="Curve7" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.223, 0, 29.309)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("8_ssjtr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.224, 0, 29.308)
+
+[node name="Straight24" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73, 0.5, 20.869)
+
+[node name="Curve8" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73025, 0.5, 21.8651)
+
+[node name="Curve9" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.72283, 0.5, 22.8652)
+
+[node name="Curve10" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.23132, 0, 29.3082)
+
+[node name="SideEntry" parent="." instance=ExtResource("9_aonsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731343, 0, 30.8087)
+
+[node name="SideEntry2" parent="." instance=ExtResource("9_aonsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22194, -9.53674e-08, 35.7987)
+
+[node name="Side" parent="." instance=ExtResource("10_gsjuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731402, -0.00104628, 31.803)
+
+[node name="Side2" parent="." instance=ExtResource("10_gsjuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731402, -0.00104628, 32.7952)
+
+[node name="Side3" parent="." instance=ExtResource("10_gsjuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731402, -0.00104628, 33.7918)
+
+[node name="Side4" parent="." instance=ExtResource("10_gsjuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731402, -0.00104628, 34.7881)
+
+[node name="SideExit" parent="." instance=ExtResource("11_fn107")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.421746, 0, 35.788)
+
+[node name="Straight28" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422411, 0, 36.788)
+
+[node name="CurveIntersection2" parent="." instance=ExtResource("4_qlsjh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.92239, 0, 38.284)
+
+[node name="Straight29" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72404, 0, 30.8051)
+
+[node name="Straight30" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72404, 0, 31.8045)
+
+[node name="Split2" parent="." instance=ExtResource("6_1vvf0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.62181, 0, 32.5029)
+
+[node name="Straight31" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22044, 0, 33.8018)
+
+[node name="Straight32" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22044, 0, 34.8029)
+
+[node name="Straight33" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22044, 0, 35.8007)
+
+[node name="Curve11" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.7151, 0, 38.303)
+
+[node name="Curve12" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22404, -1.90735e-07, 33.8034)
+
+[node name="Curve13" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.22209, 0, 35.8019)
+
+[node name="Side5" parent="." instance=ExtResource("10_gsjuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22252, 0, 36.7976)
+
+[node name="Side6" parent="." instance=ExtResource("10_gsjuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22252, 0, 37.7949)
+
+[node name="Side7" parent="." instance=ExtResource("10_gsjuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22252, 0, 38.7924)
+
+[node name="SideExit2" parent="." instance=ExtResource("11_fn107")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22305, 0, 39.7861)
+
+[node name="SlantCurve4" parent="." instance=ExtResource("5_q52e3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.023, 0, 42.885)
+
+[node name="Curve14" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.423077, 0, 39.7753)
+
+[node name="Curve15" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.42119, 0, 42.7756)
+
+[node name="Straight34" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22318, 0.5, 42.769)
+
+[node name="Curve16" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.725, 0.5, 45.267)
+
+[node name="Curve17" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.84992, 0.5, 45.2675)
+
+[node name="Curve21" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.93014, 0.5, 52.2221)
+
+[node name="Curve23" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.9188, 0.5, 53.1576)
+
+[node name="Straight35" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42113, 0, 42.7728)
+
+[node name="Straight36" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42113, 0, 43.7563)
+
+[node name="Straight37" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42113, 0, 44.7494)
+
+[node name="Straight38" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42113, 0, 45.7196)
+
+[node name="Straight40" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35581, 0.5, 46.7651)
+
+[node name="Straight41" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.36168, 0.5, 47.7596)
+
+[node name="Straight42" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.36679, 0.5, 48.7409)
+
+[node name="Straight43" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.36344, 0.5, 49.7337)
+
+[node name="Straight46" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.36256, 0.5, 50.7294)
+
+[node name="Straight48" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42482, 0.5, 53.7171)
+
+[node name="Straight50" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4263, 0.5, 54.6531)
+
+[node name="Straight49" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41973, 0.5, 54.6459)
+
+[node name="Straight44" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41971, 0.5, 49.7136)
+
+[node name="Straight45" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41971, 0.5, 50.7113)
+
+[node name="Straight47" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41971, 0.5, 51.6709)
+
+[node name="Curve18" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42075, 0, 46.719)
+
+[node name="Curve19" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.42061, 0, 47.7188)
+
+[node name="SlantCurve5" parent="." instance=ExtResource("5_q52e3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.21972, -3.8147e-07, 49.8134)
+
+[node name="Curve20" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.85764, 0.5, 52.2215)
+
+[node name="Curve22" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.91918, 0.5, 53.155)
+
+[node name="Split3" parent="." instance=ExtResource("6_1vvf0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.01799, 0.5, 56.9313)
+
+[node name="Straight39" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.919, 0.5, 56.6244)
+
+[node name="SlantCurve6" parent="." instance=ExtResource("5_q52e3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.11899, 0, 57.5226)
+
+[node name="Straight51" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91919, 0, 59.6139)
+
+[node name="Straight52" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91919, 0, 60.6154)
+
+[node name="Straight53" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91919, 0, 61.606)
+
+[node name="Straight54" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91919, 0, 62.5927)
+
+[node name="Straight55" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91919, 0, 63.5758)
+
+[node name="Straight56" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91919, 0, 64.5584)
+
+[node name="Straight57" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91919, 0, 65.5174)
+
+[node name="Straight58" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91919, 0, 66.5103)
+
+[node name="Curve24" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92157, 0, 67.5091)
+
+[node name="Curve25" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.41096, 0, 68.0087)
+
+[node name="Curve29" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.40886, 0, 70.0081)
+
+[node name="Curve30" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90882, 0, 70.5076)
+
+[node name="Curve26" parent="." instance=ExtResource("7_ccqvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.40949, 0, 67.0098)
+
+[node name="Curve27" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.90569, 0, 68.5111)
+
+[node name="Curve28" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.40795, 0, 70.0087)
+
+[node name="Curve31" parent="." instance=ExtResource("2_5rekq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.88642, 0, 72.509)
+
+[node name="Straight59" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.40004, 0, 71.0066)
+
+[node name="Straight60" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.39397, 0, 71.0066)
+
+[node name="Straight61" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.39609, 0, 71.0066)
+
+[node name="Straight62" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88722, 0, 72.5091)
+
+[node name="Straight63" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88722, 0, 73.5091)
+
+[node name="Straight64" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88722, 0, 76.5091)
+
+[node name="Straight66" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88722, 0, 77.5091)
+
+[node name="Straight67" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88722, 0, 78.5091)
+
+[node name="Straight68" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88722, 0, 79.5091)
+
+[node name="Straight69" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.88722, 0, 80.5091)
+
+[node name="Straight65" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.39608, 0, 76.01)
+
+[node name="CurveIntersection3" parent="." instance=ExtResource("4_qlsjh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.38555, 0, 76.0114)
+
+[node name="RoadEnd3" parent="." instance=ExtResource("3_mxkuk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.40551, 0, 76.0111)
+
+[node name="Slant" parent="." instance=ExtResource("12_c6csp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.6864, 0, 82.5992)
+
+[node name="RoadEnd4" parent="." instance=ExtResource("3_mxkuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89377, 0, 91.1077)
+
+[node name="RoadEnd5" parent="." instance=ExtResource("3_mxkuk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.89377, 0, 90.1621)
+
+[node name="Straight70" parent="." instance=ExtResource("1_obgic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89643, 3.8147e-07, 90.1103)
