@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://n7e5jxettdli"]
+
+[ext_resource type="Script" path="res://src/Checkpoint.gd" id="1_ai2j0"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ornai"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Gradient" id="Gradient_ye2q7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.120521, 0.560261, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x1f5w"]
+gradient = SubResource("Gradient_ye2q7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2qepo"]
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("GradientTexture1D_x1f5w")
+
+[sub_resource type="TorusMesh" id="TorusMesh_wlty2"]
+inner_radius = 1.4
+outer_radius = 1.8
+rings = 4
+ring_segments = 4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1m15r"]
+height = 7.98089
+radius = 2.63758
+
+[node name="Checkpoint" type="Area3D"]
+script = ExtResource("1_ai2j0")
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+material_override = SubResource("ORMMaterial3D_ornai")
+transparency = 0.5
+cast_shadow = 0
+amount = 4
+lifetime = 0.5
+speed_scale = 0.5
+visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
+process_material = SubResource("ParticleProcessMaterial_2qepo")
+draw_pass_1 = SubResource("TorusMesh_wlty2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34649, 0)
+shape = SubResource("CylinderShape3D_1m15r")
