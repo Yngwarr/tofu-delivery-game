@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bak3noash7osy"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_enm8k"]
+emission_shape = 3
+emission_box_extents = Vector3(0.2, 0.1, 0.1)
+direction = Vector3(0, 0, -1)
+spread = 10.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_max = 0.2
+scale_min = 0.4
+scale_max = 1.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rl0ed"]
+radius = 0.1
+height = 0.2
+radial_segments = 8
+rings = 1
+
+[node name="DustParticles" type="GPUParticles3D"]
+transparency = 0.8
+amount = 20
+lifetime = 0.3
+interpolate = false
+fract_delta = false
+visibility_aabb = AABB(-0.5, 0, -0.5, 1, 1, 1)
+process_material = SubResource("ParticleProcessMaterial_enm8k")
+draw_pass_1 = SubResource("CapsuleMesh_rl0ed")
