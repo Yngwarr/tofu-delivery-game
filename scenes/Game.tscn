@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ucubnjga7flw"]
+[gd_scene load_steps=18 format=3 uid="uid://ucubnjga7flw"]
 
+[ext_resource type="Script" path="res://src/Game.gd" id="1_827q4"]
 [ext_resource type="PackedScene" uid="uid://b3586j135yfbf" path="res://scenes/Car.tscn" id="1_ee4kg"]
 [ext_resource type="Texture2D" uid="uid://t3ljxgs3vynr" path="res://textures/proto_dark.png" id="1_gocvt"]
 [ext_resource type="Script" path="res://src/Speedometer.gd" id="3_euadt"]
 [ext_resource type="PackedScene" uid="uid://dl1a1tmrmtdls" path="res://scenes/Road.tscn" id="4_mpevo"]
 [ext_resource type="Texture2D" uid="uid://cmj4se5epwa5t" path="res://textures/speedometer.png" id="5_8lsma"]
+[ext_resource type="Script" path="res://src/StopwatchLabel.gd" id="5_yftl0"]
 [ext_resource type="Texture2D" uid="uid://calurnr5vmja1" path="res://textures/Arrow.png" id="6_6458a"]
 [ext_resource type="PackedScene" uid="uid://n7e5jxettdli" path="res://scenes/Checkpoint.tscn" id="7_alyof"]
 [ext_resource type="Script" path="res://src/CheckpointController.gd" id="7_gcnu8"]
@@ -37,7 +39,14 @@ fog_enabled = true
 fog_light_color = Color(0, 0, 0.658824, 1)
 fog_density = 0.001
 
-[node name="Game" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4702"]
+size = Vector3(26.3719, 17.3055, 4.21796)
+
+[node name="Game" type="Node3D" node_paths=PackedStringArray("checkpoint_ctl", "start_collider", "stopwatch_label")]
+script = ExtResource("1_827q4")
+checkpoint_ctl = NodePath("Checkpoints")
+start_collider = NodePath("Colliders/Start")
+stopwatch_label = NodePath("HUD/Stopwatch")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -82,6 +91,15 @@ scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("6_6458a")
 offset = Vector2(0, 30)
 flip_v = true
+
+[node name="Stopwatch" type="Label" parent="HUD"]
+offset_left = 35.0
+offset_top = 27.0
+offset_right = 196.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 48
+text = "0:00.00"
+script = ExtResource("5_yftl0")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 2
@@ -192,11 +210,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.9666, -147.002, 985.507)
 [node name="Checkpoint27" parent="Checkpoints" instance=ExtResource("7_alyof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.897, -151.07, 1012.72)
 
-[node name="Checkpoint28" parent="Checkpoints" instance=ExtResource("7_alyof")]
+[node name="SmallFinish" parent="Checkpoints" instance=ExtResource("7_alyof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.5004, -156.929, 1051.93)
+finish = true
 
 [node name="Checkpoint29" parent="Checkpoints" instance=ExtResource("7_alyof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.877, -161.403, 1081.86)
 
-[node name="Checkpoint30" parent="Checkpoints" instance=ExtResource("7_alyof")]
+[node name="Finish" parent="Checkpoints" instance=ExtResource("7_alyof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.524, -179.594, 1203.58)
+finish = true
+
+[node name="Colliders" type="Node3D" parent="."]
+
+[node name="Start" type="Area3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99884, -2.13274, 30.2984)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/Start"]
+shape = SubResource("BoxShape3D_f4702")
