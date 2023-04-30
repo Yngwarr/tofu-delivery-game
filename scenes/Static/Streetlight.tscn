@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dirsb6mlgyolc"]
+
+[ext_resource type="PackedScene" uid="uid://lr7ycug8b8u5" path="res://models/roads/light_curved.glb" id="1_hx6kt"]
+
+[node name="Streetlight" type="Node3D"]
+
+[node name="light_curved" parent="." instance=ExtResource("1_hx6kt")]
+transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, 0, 0, -10.5)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.14142, 2.45888)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 14.1921
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0091359, -0.0197999, -0.207698)
+omni_range = 1.0804
