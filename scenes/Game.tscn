@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ucubnjga7flw"]
+[gd_scene load_steps=14 format=3 uid="uid://ucubnjga7flw"]
 
 [ext_resource type="PackedScene" uid="uid://cdqld478wjboa" path="res://scenes/Car.tscn" id="1_ee4kg"]
 [ext_resource type="Texture2D" uid="uid://t3ljxgs3vynr" path="res://textures/proto_dark.png" id="1_gocvt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dl1a1tmrmtdls" path="res://scenes/Road.tscn" id="4_mpevo"]
 [ext_resource type="Texture2D" uid="uid://cmj4se5epwa5t" path="res://textures/speedometer.png" id="5_8lsma"]
 [ext_resource type="Texture2D" uid="uid://calurnr5vmja1" path="res://textures/Arrow.png" id="6_6458a"]
+[ext_resource type="PackedScene" uid="uid://n7e5jxettdli" path="res://scenes/check_point.tscn" id="7_b83ti"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
 plane = Plane(0, 1, 0.15, 0)
@@ -100,3 +101,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2sxos")
+
+[node name="CheckPoint" parent="." instance=ExtResource("7_b83ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58816, -2.66536, 19.7286)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://n7e5jxettdli"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ornai"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.960784, 0.827451, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2qepo"]
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_wlty2"]
+inner_radius = 2.8
+outer_radius = 3.3
+rings = 4
+ring_segments = 4
+
+[node name="CheckPoint" type="GPUParticles3D"]
+material_override = SubResource("ORMMaterial3D_ornai")
+transparency = 0.5
+amount = 5
+speed_scale = 0.5
+visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
+process_material = SubResource("ParticleProcessMaterial_2qepo")
+draw_pass_1 = SubResource("TorusMesh_wlty2")
