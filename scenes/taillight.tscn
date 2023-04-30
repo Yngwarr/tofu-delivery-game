@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cknmrcua4fnxu"]
+
+[node name="Taillight" type="OmniLight3D"]
+transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 1.76123e-16, 0.978148, 0.207912, 8.74228e-08, 0.207912, -0.978148, -0.819928, 0.716294, -2.73692)
+light_color = Color(1, 0, 0, 1)
+omni_range = 0.134995

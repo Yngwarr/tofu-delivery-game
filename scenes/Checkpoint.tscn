@@ -25,7 +25,7 @@ color_ramp = SubResource("GradientTexture1D_x1f5w")
 
 [sub_resource type="TorusMesh" id="TorusMesh_wlty2"]
 inner_radius = 1.4
-outer_radius = 1.8
+outer_radius = 1.5
 rings = 4
 ring_segments = 4
 
@@ -40,7 +40,6 @@ script = ExtResource("1_ai2j0")
 material_override = SubResource("ORMMaterial3D_ornai")
 transparency = 0.5
 cast_shadow = 0
-amount = 4
 lifetime = 0.5
 speed_scale = 0.5
 visibility_aabb = AABB(-2, -2, -2, 4, 4, 4)
@@ -50,3 +49,9 @@ draw_pass_1 = SubResource("TorusMesh_wlty2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34649, 0)
 shape = SubResource("CylinderShape3D_1m15r")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05278, 0)
+light_color = Color(1, 1, 0, 1)
+light_energy = 6.0
+light_indirect_energy = 6.0

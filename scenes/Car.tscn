@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdqld478wjboa"]
+[gd_scene load_steps=11 format=3 uid="uid://cdqld478wjboa"]
 
 [ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
 [ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bpn84vi24hyje" path="res://scenes/Wheel.tscn" id="3_4m2kf"]
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="4_40kqm"]
 [ext_resource type="PackedScene" uid="uid://yj1ac53ymcho" path="res://scenes/tofu_box.tscn" id="6_jm0d0"]
+[ext_resource type="PackedScene" uid="uid://clhlk046se2ui" path="res://scenes/Headlight.tscn" id="7_8gh1b"]
+[ext_resource type="PackedScene" uid="uid://cknmrcua4fnxu" path="res://scenes/taillight.tscn" id="8_nhpnl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yjs3a"]
 bounce = 0.5
@@ -70,7 +72,7 @@ transform = Transform3D(-2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("2_gm2jt")
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-1, -2.4869e-14, -8.74228e-08, -3.51995e-08, 0.915361, 0.402635, 8.00234e-08, 0.402635, -0.915361, -2.25604e-07, 3.97315, -6.43922)
+transform = Transform3D(-1, -2.84217e-14, -8.74228e-08, -4.62882e-08, 0.848325, 0.529475, 7.4163e-08, 0.529475, -0.848325, -2.25604e-07, 4.85091, -6.43922)
 
 [node name="truckFlat" parent="." instance=ExtResource("4_40kqm")]
 transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, -0.572637, 0)
@@ -92,6 +94,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.639547, -0.594241)
 
 [node name="TofuBox2" parent="." instance=ExtResource("6_jm0d0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, -1.8)
+
+[node name="Headlight" parent="." instance=ExtResource("7_8gh1b")]
+
+[node name="Headlight2" parent="." instance=ExtResource("7_8gh1b")]
+transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 0, 0.978148, 0.207912, 8.74228e-08, 0.207912, -0.978148, -0.71085, 0.56277, 2.59429)
+
+[node name="Taillight" parent="." instance=ExtResource("8_nhpnl")]
+
+[node name="Taillight2" parent="." instance=ExtResource("8_nhpnl")]
+transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 1.76123e-16, 0.978148, 0.207912, 8.74228e-08, 0.207912, -0.978148, 0.859563, 0.716294, -2.73692)
 
 [editable path="flw"]
 [editable path="rlw"]
