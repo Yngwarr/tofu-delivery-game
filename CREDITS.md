@@ -4,3 +4,5 @@
 * Kenney.nl for:
     * prototype textures (via https://kenney.nl/assets/prototype-textures)
     * car models (via https://kenney.nl/assets/car-kit)
+* AgneTheGreat for car engine simulator (via https://github.com/Engine-Simulator/engine-sim-community-edition)
+* qubodup for a skid sound (via https://opengameart.org/content/car-tire-squeal-skid-loop)

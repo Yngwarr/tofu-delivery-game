@@ -20,3 +20,12 @@
 * Tutorial
 * Achievements
 * Movable objects on the road
+
+
+## Achievements
+
+* Break a minute
+* No restarts
+* See all the endings
+* Collect all checkpoints
+* Get out of bounds

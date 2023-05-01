@@ -2,6 +2,7 @@ class_name Car
 extends VehicleBody3D
 
 @export var engine_sound: AudioStreamPlayer3D
+@export var skid_sound: AudioStreamPlayer3D
 
 var steering_wheels: Array[VehicleWheel3D]
 var driving_wheels: Array[VehicleWheel3D]
@@ -59,3 +60,18 @@ func _physics_process(delta):
 		light.visible = throttle < 0
 
 	engine_sound.pitch_scale = absf(linear_velocity.length_squared() / 1600) * 3 + 1
+
+	var skidding := is_skidding()
+	if skidding and !skid_sound.playing:
+		skid_sound.play()
+	if !skidding and skid_sound.playing:
+		skid_sound.stop()
+
+func is_skidding() -> bool:
+	for wheel in driving_wheels:
+		if wheel.skidding:
+			return true
+	for wheel in steering_wheels:
+		if wheel.skidding:
+			return true
+	return false
