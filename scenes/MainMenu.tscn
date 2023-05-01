@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4551ljsw43dm"]
+
+[ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="1_nxye5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aq2cb"]
+albedo_color = Color(0.172549, 0.45098, 0.294118, 1)
+uv1_scale = Vector3(100, 100, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3bg0a"]
+size = Vector2(200, 1300)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7cdkc"]
+font_size = 60
+
+[node name="Node3D" type="Node3D"]
+
+[node name="truckFlat" parent="." instance=ExtResource("1_nxye5")]
+transform = Transform3D(-0.309017, 0, -0.951057, 0, 1, 0, 0.951057, 0, -0.309017, -3, 0, -4.086)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49198, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.944411, 0, 0.328768, -0.166758, 0.861815, 0.479026, -0.283337, -0.507223, 0.813908, 0, 10, 5)
+light_color = Color(0.301961, 0.133333, 1, 1)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_aq2cb")
+mesh = SubResource("PlaneMesh_3bg0a")
+
+[node name="MenuButtons" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ButtonStart" type="Button" parent="MenuButtons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -39.0
+offset_right = 105.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="ButtonCredits" type="Button" parent="MenuButtons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 57.0
+offset_right = 105.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+
+[node name="ButtonExit" type="Button" parent="MenuButtons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 149.0
+offset_right = 105.0
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+
+[node name="Label" type="Label" parent="MenuButtons"]
+anchors_preset = -1
+anchor_top = 0.054
+anchor_right = 1.0
+anchor_bottom = 0.377
+offset_top = 0.00799942
+offset_bottom = -0.296005
+grow_horizontal = 2
+grow_vertical = 2
+text = "Early Morning
+Tofu Delivery"
+label_settings = SubResource("LabelSettings_7cdkc")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6t2jehiq6g0j"
-path="res://.godot/imported/tractorShovel.glb-4c6c8599aea57416dc043db8a14144de.scn"
+uid="uid://besy1pergldkp"
+path="res://.godot/imported/terrain.glb-c2fa2755df6ad500ae39d8cc1c3b16e1.scn"
 
 [deps]
 
-source_file="res://models/cars/tractorShovel.glb"
-dest_files=["res://.godot/imported/tractorShovel.glb-4c6c8599aea57416dc043db8a14144de.scn"]
+source_file="res://models/terrain.glb"
+dest_files=["res://.godot/imported/terrain.glb-c2fa2755df6ad500ae39d8cc1c3b16e1.scn"]
 
 [params]
 
