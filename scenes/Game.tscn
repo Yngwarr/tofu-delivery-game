@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://src/CheckpointController.gd" id="7_gcnu8"]
 [ext_resource type="Texture2D" uid="uid://dd1iwj48n0vrl" path="res://textures/sign_arrow_side.png" id="7_waoa5"]
 [ext_resource type="Texture2D" uid="uid://bd5sfexbe7yub" path="res://textures/sign_arrow_straight.png" id="8_1oxkt"]
+[ext_resource type="Script" path="res://src/DirectionSign.gd" id="8_pxxjr"]
 [ext_resource type="PackedScene" uid="uid://4v02rs3ea4l1" path="res://models/nature/stone_tallA.glb" id="8_uoc4l"]
 [ext_resource type="PackedScene" uid="uid://b30w5ivn4ltip" path="res://models/nature/stone_tallB.glb" id="9_0sm30"]
 [ext_resource type="PackedScene" uid="uid://bip5ewt4nuwq" path="res://models/nature/tree_pineDefaultA.glb" id="10_qmw50"]
@@ -131,27 +132,31 @@ script = ExtResource("5_yftl0")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -101.0
-offset_right = 207.0
+offset_left = 22.0
+offset_top = -112.0
+offset_right = 229.0
+offset_bottom = -11.0
 grow_vertical = 0
 text = "<Score>"
 label_settings = SubResource("LabelSettings_k2l0g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sign" type="TextureRect" parent="HUD"]
-visible = false
+[node name="Sign" type="TextureRect" parent="HUD" node_paths=PackedStringArray("fork_container")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -114.5
+offset_top = -200.0
 offset_right = 114.5
-offset_bottom = 195.0
+offset_bottom = -5.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_wi27b")
 stretch_mode = 5
+script = ExtResource("8_pxxjr")
+fork_container = NodePath("../../Colliders")
 
 [node name="Left" type="Sprite2D" parent="HUD/Sign"]
 position = Vector2(94.5, 108)
@@ -162,7 +167,7 @@ position = Vector2(135.5, 108)
 scale = Vector2(-1, 1)
 texture = ExtResource("7_waoa5")
 
-[node name="Straight" type="Sprite2D" parent="HUD/Sign"]
+[node name="Fwd" type="Sprite2D" parent="HUD/Sign"]
 position = Vector2(113.5, 93)
 texture = ExtResource("8_1oxkt")
 

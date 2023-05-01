@@ -5,6 +5,7 @@ signal car_entered(mode)
 signal fork_resolved(direction)
 
 enum Mode {REGULAR = 0, LEFT_IS_FWD = -1, RIGHT_IS_FWD = 1}
+enum Direction {FWD = 0, LEFT = -1, RIGHT = 1}
 
 @export var mode: Mode
 @export var left_checkpoint_paths: Array[NodePath]
@@ -37,7 +38,7 @@ func left_entered(_car: Car):
 	if resolved: return
 	resolved = true
 
-	fork_resolved.emit(-1)
+	fork_resolved.emit(Direction.FWD if mode == Mode.LEFT_IS_FWD else Direction.LEFT)
 	for c in right_checkpoints:
 		c.disappear()
 
@@ -45,6 +46,6 @@ func right_entered(_car: Car):
 	if resolved: return
 	resolved = true
 
-	fork_resolved.emit(1)
+	fork_resolved.emit(Direction.FWD if mode == Mode.RIGHT_IS_FWD else Direction.RIGHT)
 	for c in left_checkpoints:
 		c.disappear()
