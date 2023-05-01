@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ucubnjga7flw"]
+[gd_scene load_steps=27 format=3 uid="uid://ucubnjga7flw"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_827q4"]
 [ext_resource type="PackedScene" uid="uid://b3586j135yfbf" path="res://scenes/Car.tscn" id="1_ee4kg"]
