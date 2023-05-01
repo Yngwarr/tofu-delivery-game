@@ -1,6 +1,8 @@
 class_name Car
 extends VehicleBody3D
 
+@export var engine_sound: AudioStreamPlayer3D
+
 var steering_wheels: Array[VehicleWheel3D]
 var driving_wheels: Array[VehicleWheel3D]
 var stoplights: Array[Stoplight]
@@ -48,10 +50,12 @@ func _physics_process(delta):
 
 	for wheel in driving_wheels:
 		wheel.engine_force = throttle * max_torque * (1 - wheel.get_rpm() / max_rpm)
-
+	
 	steering = lerp(steering,
 		Input.get_axis("steer_right", "steer_left") * steer_multiplier,
 		steer_smoothness * delta)
 
 	for light in stoplights:
 		light.visible = throttle < 0
+
+	engine_sound.pitch_scale = absf(linear_velocity.length_squared() / 1600) * 3 + 1
