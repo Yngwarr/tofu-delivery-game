@@ -51,7 +51,7 @@ func _physics_process(delta):
 
 	for wheel in driving_wheels:
 		wheel.engine_force = throttle * max_torque * (1 - wheel.get_rpm() / max_rpm)
-	
+
 	steering = lerp(steering,
 		Input.get_axis("steer_right", "steer_left") * steer_multiplier,
 		steer_smoothness * delta)

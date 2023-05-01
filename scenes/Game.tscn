@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://ucubnjga7flw"]
+[gd_scene load_steps=32 format=3 uid="uid://ucubnjga7flw"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_827q4"]
 [ext_resource type="PackedScene" uid="uid://b3586j135yfbf" path="res://scenes/Car.tscn" id="1_ee4kg"]
+[ext_resource type="AudioStream" uid="uid://xwuhdxr85s0p" path="res://sounds/av_letme.ogg" id="2_425g3"]
 [ext_resource type="Script" path="res://src/Speedometer.gd" id="3_euadt"]
 [ext_resource type="PackedScene" uid="uid://dl1a1tmrmtdls" path="res://scenes/Road.tscn" id="4_mpevo"]
 [ext_resource type="Texture2D" uid="uid://cmj4se5epwa5t" path="res://textures/speedometer.png" id="5_8lsma"]
@@ -57,11 +58,16 @@ fog_density = 0.001
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4702"]
 size = Vector3(26.3719, 17.3055, 4.21796)
 
-[node name="Game" type="Node3D" node_paths=PackedStringArray("checkpoint_ctl", "start_collider", "stopwatch_label")]
+[node name="Game" type="Node3D" node_paths=PackedStringArray("checkpoint_ctl", "music_player", "start_collider", "stopwatch_label")]
 script = ExtResource("1_827q4")
 checkpoint_ctl = NodePath("Checkpoints")
+music_player = NodePath("MusicPlayer")
 start_collider = NodePath("Colliders/Start")
 stopwatch_label = NodePath("HUD/Stopwatch")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_425g3")
+volume_db = -3.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -129,6 +135,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sign" type="TextureRect" parent="HUD"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
