@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ucubnjga7flw"]
+[gd_scene load_steps=31 format=3 uid="uid://ucubnjga7flw"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_827q4"]
 [ext_resource type="PackedScene" uid="uid://b3586j135yfbf" path="res://scenes/Car.tscn" id="1_ee4kg"]
@@ -7,8 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cmj4se5epwa5t" path="res://textures/speedometer.png" id="5_8lsma"]
 [ext_resource type="Script" path="res://src/StopwatchLabel.gd" id="5_yftl0"]
 [ext_resource type="Texture2D" uid="uid://calurnr5vmja1" path="res://textures/Arrow.png" id="6_6458a"]
+[ext_resource type="Texture2D" uid="uid://d18kyjw3m75hp" path="res://textures/sign.png" id="6_wi27b"]
 [ext_resource type="PackedScene" uid="uid://n7e5jxettdli" path="res://scenes/Checkpoint.tscn" id="7_alyof"]
 [ext_resource type="Script" path="res://src/CheckpointController.gd" id="7_gcnu8"]
+[ext_resource type="Texture2D" uid="uid://dd1iwj48n0vrl" path="res://textures/sign_arrow_side.png" id="7_waoa5"]
+[ext_resource type="Texture2D" uid="uid://bd5sfexbe7yub" path="res://textures/sign_arrow_straight.png" id="8_1oxkt"]
 [ext_resource type="PackedScene" uid="uid://4v02rs3ea4l1" path="res://models/nature/stone_tallA.glb" id="8_uoc4l"]
 [ext_resource type="PackedScene" uid="uid://b30w5ivn4ltip" path="res://models/nature/stone_tallB.glb" id="9_0sm30"]
 [ext_resource type="PackedScene" uid="uid://bip5ewt4nuwq" path="res://models/nature/tree_pineDefaultA.glb" id="10_qmw50"]
@@ -19,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://ddctu8nkhnnjs" path="res://models/nature/stone_tallE.glb" id="17_tlxg1"]
 [ext_resource type="PackedScene" uid="uid://dp8opsonx2r68" path="res://models/nature/tree_blocks_dark.glb" id="17_urnxt"]
 [ext_resource type="PackedScene" uid="uid://bb1pdbmckkyky" path="res://models/nature/stone_tallD.glb" id="18_00w5a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2l0g"]
+font_size = 50
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_b63vk"]
 plane = Plane(0, 1, 0.15, 0)
@@ -109,6 +115,44 @@ offset_bottom = 97.0
 theme_override_font_sizes/font_size = 48
 text = "0:00.00"
 script = ExtResource("5_yftl0")
+
+[node name="Score" type="Label" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 207.0
+grow_vertical = 0
+text = "<Score>"
+label_settings = SubResource("LabelSettings_k2l0g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sign" type="TextureRect" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.5
+offset_right = 114.5
+offset_bottom = 195.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_wi27b")
+stretch_mode = 5
+
+[node name="Left" type="Sprite2D" parent="HUD/Sign"]
+position = Vector2(94.5, 108)
+texture = ExtResource("7_waoa5")
+
+[node name="Right" type="Sprite2D" parent="HUD/Sign"]
+position = Vector2(135.5, 108)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_waoa5")
+
+[node name="Straight" type="Sprite2D" parent="HUD/Sign"]
+position = Vector2(113.5, 93)
+texture = ExtResource("8_1oxkt")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 2
