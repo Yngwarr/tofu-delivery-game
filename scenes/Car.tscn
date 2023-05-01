@@ -123,6 +123,7 @@ transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 1.76123e-16, 0.978148, 0.
 [node name="Engine" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767449, 1.89567)
 stream = ExtResource("10_3bdda")
+volume_db = -2.0
 autoplay = true
 
 [node name="Skid" type="AudioStreamPlayer3D" parent="."]

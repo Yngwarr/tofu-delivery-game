@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://n7e5jxettdli"]
+[gd_scene load_steps=12 format=3 uid="uid://n7e5jxettdli"]
 
 [ext_resource type="Script" path="res://src/Checkpoint.gd" id="1_ai2j0"]
+[ext_resource type="AudioStream" uid="uid://c6xh7v887k0c4" path="res://sounds/pick.wav" id="2_7tfnv"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ornai"]
 transparency = 1
@@ -59,6 +60,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [6.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pick:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_0yiir"]
 resource_name = "disappear"
@@ -98,6 +111,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [6.0, 0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pick:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l0jqe"]
 _data = {
@@ -133,3 +158,6 @@ omni_attenuation = 0.297302
 libraries = {
 "": SubResource("AnimationLibrary_l0jqe")
 }
+
+[node name="Pick" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_7tfnv")
