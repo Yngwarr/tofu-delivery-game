@@ -15,4 +15,7 @@ func on_car_entered(car: Car):
 
 	car.respawn_location = global_position + Vector3.UP
 	tagged.emit(finish)
+	anim.play("picked")
+
+func disappear():
 	anim.play("disappear")

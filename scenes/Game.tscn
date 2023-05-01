@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ucubnjga7flw"]
+[gd_scene load_steps=33 format=3 uid="uid://ucubnjga7flw"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_827q4"]
 [ext_resource type="PackedScene" uid="uid://b3586j135yfbf" path="res://scenes/Car.tscn" id="1_ee4kg"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bip5ewt4nuwq" path="res://models/nature/tree_pineDefaultA.glb" id="10_qmw50"]
 [ext_resource type="PackedScene" uid="uid://xx4pfh80qf33" path="res://models/nature/tree_pineDefaultB.glb" id="11_no28x"]
 [ext_resource type="PackedScene" uid="uid://c8majbdnhpmyo" path="res://models/nature/tree_pineTallB.glb" id="12_2odnt"]
+[ext_resource type="PackedScene" uid="uid://ct7ibmsln7e5w" path="res://scenes/Fork.tscn" id="14_edl5d"]
 [ext_resource type="PackedScene" uid="uid://c0857ljc4fvnr" path="res://models/nature/plant_bush.glb" id="16_ct8mb"]
 [ext_resource type="PackedScene" uid="uid://bhseqk1uacrdv" path="res://models/nature/stone_tallC.glb" id="16_u2l3s"]
 [ext_resource type="PackedScene" uid="uid://ddctu8nkhnnjs" path="res://models/nature/stone_tallE.glb" id="17_tlxg1"]
@@ -286,9 +287,14 @@ finish = true
 
 [node name="Start" type="Area3D" parent="Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99884, -2.13274, 30.2984)
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/Start"]
 shape = SubResource("BoxShape3D_f4702")
+
+[node name="Fork" parent="Colliders" instance=ExtResource("14_edl5d")]
+left_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint3"), NodePath("../../Checkpoints/Checkpoint5"), NodePath("../../Checkpoints/Checkpoint7"), NodePath("../../Checkpoints/Checkpoint10"), NodePath("../../Checkpoints/Checkpoint11")])
+right_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint4"), NodePath("../../Checkpoints/Checkpoint6"), NodePath("../../Checkpoints/Checkpoint8"), NodePath("../../Checkpoints/Checkpoint9")])
 
 [node name="Environment" type="Node3D" parent="."]
 

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct7ibmsln7e5w"]
+
+[ext_resource type="Script" path="res://src/Fork.gd" id="1_vve74"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4702"]
+size = Vector3(26.3719, 17.3055, 4.21796)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ide2"]
+size = Vector3(12.6527, 11.2672, 1)
+
+[node name="Fork" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.1821, -7.03186, 116.808)
+script = ExtResource("1_vve74")
+
+[node name="Start" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Start"]
+shape = SubResource("BoxShape3D_f4702")
+
+[node name="Left" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3009, -5.95503, 50.6748)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
+shape = SubResource("BoxShape3D_2ide2")
+
+[node name="Right" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38601, -5.95503, 50.6748)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
+shape = SubResource("BoxShape3D_2ide2")

@@ -37,7 +37,6 @@ func _ready():
 			steering_wheels.append(c)
 
 func bump(_body: Node):
-	print('bump')
 	if bump_sound.playing: return
 	bump_sound.play()
 
