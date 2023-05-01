@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3586j135yfbf"]
+[gd_scene load_steps=15 format=3 uid="uid://b3586j135yfbf"]
 
 [ext_resource type="Script" path="res://src/Car.gd" id="1_uwfxo"]
 [ext_resource type="Script" path="res://src/CameraPivot.gd" id="2_gm2jt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://by6nefytksqll" path="res://scenes/Stoplight.tscn" id="9_tskr5"]
 [ext_resource type="AudioStream" uid="uid://c2g36o0uk7gml" path="res://sounds/engine.ogg" id="10_3bdda"]
 [ext_resource type="AudioStream" uid="uid://cc02uaupmjayp" path="res://sounds/tires_squal_loop.wav" id="11_gmawt"]
+[ext_resource type="AudioStream" uid="uid://rwgjrqlckxix" path="res://sounds/bump.wav" id="12_gmh6n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yjs3a"]
 bounce = 0.5
@@ -18,14 +19,17 @@ bounce = 0.5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_itm1b"]
 points = PackedVector3Array(0.75, 0.599961, -0.750199, 0.75, 0.499932, -0.750199, 0.75, 0.599961, -0.850184, 0.449883, 1.1, 0.0499463, 0.599941, 0.599961, 1.44499, 0.649863, 0.199951, 1.345, 0.75, 0.499932, -0.850184, 0.649863, 0, 1.345, 0.649863, 0.199951, -1.10001, 0.620644, 0.199951, -1.17072, 0.549873, 0.399902, -1.15014, 0.449883, 1.1, -0.450243, -0.450029, 1.1, 0.0499463, 0.549873, 0.599961, 1.49511, 0.599941, 0.499932, 1.44499, 0.620644, 0.199951, 1.41571, 0.649863, 0, -1.10001, 0.620644, 0, 1.41571, 0.620644, 0, -1.17072, 0.549873, 0.199951, -1.2, -0.55002, 0.399902, -1.15014, -0.450029, 1.1, -0.450243, -0.600088, 0.599961, 1.44684, -0.551782, 0.599961, 1.49511, -0.75, 0.599961, -0.750199, 0.549873, 0.499932, 1.49511, 0.549873, 0, 1.44499, 0.549873, 0, -1.2, -0.55002, 0.199951, -1.2, -0.620791, 0.199951, -1.17072, -0.75, 0.599961, -0.850184, -0.65001, 0.199951, 1.345, -0.620791, 0.199951, 1.41571, -0.600088, 0.499932, 1.44684, -0.551782, 0.499932, 1.49511, -0.75, 0.499932, -0.750199, -0.55002, 0, 1.44499, -0.55002, 0, -1.2, -0.620791, 0, -1.17072, -0.65001, 0.199951, -1.10001, -0.75, 0.499932, -0.850184, -0.65001, 0, 1.345, -0.620791, 0, 1.41571, -0.65001, 0, -1.10001)
 
-[node name="Car" type="VehicleBody3D" node_paths=PackedStringArray("engine_sound", "skid_sound")]
+[node name="Car" type="VehicleBody3D" node_paths=PackedStringArray("engine_sound", "skid_sound", "bump_sound")]
 collision_mask = 2
 mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_yjs3a")
 continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_uwfxo")
 engine_sound = NodePath("Engine")
 skid_sound = NodePath("Skid")
+bump_sound = NodePath("Bump")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 3.70113e-08, -0.172637, 0.245114)
@@ -127,6 +131,10 @@ stream = ExtResource("11_gmawt")
 volume_db = -15.0
 pitch_scale = 0.9
 emission_angle_enabled = true
+
+[node name="Bump" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_gmh6n")
+volume_db = 12.0
 
 [editable path="flw"]
 [editable path="rlw"]

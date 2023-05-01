@@ -3,6 +3,7 @@ extends VehicleBody3D
 
 @export var engine_sound: AudioStreamPlayer3D
 @export var skid_sound: AudioStreamPlayer3D
+@export var bump_sound: AudioStreamPlayer3D
 
 var steering_wheels: Array[VehicleWheel3D]
 var driving_wheels: Array[VehicleWheel3D]
@@ -19,6 +20,7 @@ var resetting = false
 func _ready():
 	add_to_group('player')
 	respawn_location = global_position
+	body_entered.connect(bump)
 
 	# would've rather export arrays to fill in the inspector, but issue #62916
 	# still persists in Godot 4.0.2
@@ -33,6 +35,11 @@ func _ready():
 			driving_wheels.append(c)
 		if c.use_as_steering:
 			steering_wheels.append(c)
+
+func bump(_body: Node):
+	print('bump')
+	if bump_sound.playing: return
+	bump_sound.play()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("reset"):
