@@ -1,10 +1,12 @@
 class_name Fork
 extends Node3D
 
-signal car_entered
-signal car_chose_left
-signal car_chose_right
+signal car_entered(mode)
+signal fork_resolved(direction)
 
+enum Mode {REGULAR = 0, LEFT_IS_FWD = -1, RIGHT_IS_FWD = 1}
+
+@export var mode: Mode
 @export var left_checkpoint_paths: Array[NodePath]
 @export var right_checkpoint_paths: Array[NodePath]
 
@@ -29,13 +31,13 @@ func _ready():
 
 func car_enter(_car: Car):
 	if resolved: return
-	car_entered.emit()
+	car_entered.emit(mode)
 
 func left_entered(_car: Car):
 	if resolved: return
 	resolved = true
 
-	car_chose_left.emit()
+	fork_resolved.emit(-1)
 	for c in right_checkpoints:
 		c.disappear()
 
@@ -43,6 +45,6 @@ func right_entered(_car: Car):
 	if resolved: return
 	resolved = true
 
-	car_chose_right.emit()
+	fork_resolved.emit(1)
 	for c in left_checkpoints:
 		c.disappear()

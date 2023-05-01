@@ -296,6 +296,53 @@ shape = SubResource("BoxShape3D_f4702")
 left_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint3"), NodePath("../../Checkpoints/Checkpoint5"), NodePath("../../Checkpoints/Checkpoint7"), NodePath("../../Checkpoints/Checkpoint10"), NodePath("../../Checkpoints/Checkpoint11")])
 right_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint4"), NodePath("../../Checkpoints/Checkpoint6"), NodePath("../../Checkpoints/Checkpoint8"), NodePath("../../Checkpoints/Checkpoint9")])
 
+[node name="Fork2" parent="Colliders" instance=ExtResource("14_edl5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2713, -57.1181, 382.231)
+mode = -1
+left_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint12"), NodePath("../../Checkpoints/Checkpoint14"), NodePath("../../Checkpoints/Checkpoint16"), NodePath("../../Checkpoints/Checkpoint18"), NodePath("../../Checkpoints/Checkpoint21")])
+right_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint13"), NodePath("../../Checkpoints/Checkpoint15")])
+
+[node name="Left" parent="Colliders/Fork2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57788, -5.95503, 40.9234)
+
+[node name="Right" parent="Colliders/Fork2" index="2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.0031, -2.25941, 23.5115)
+
+[node name="Fork3" parent="Colliders" instance=ExtResource("14_edl5d")]
+transform = Transform3D(-0.0293174, 0, -0.99957, 0, 1, 0, 0.99957, 0, -0.0293174, 74.253, -57.1181, 403.905)
+mode = 1
+left_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint12"), NodePath("../../Checkpoints/Checkpoint14"), NodePath("../../Checkpoints/Checkpoint16"), NodePath("../../Checkpoints/Checkpoint18"), NodePath("../../Checkpoints/Checkpoint21")])
+right_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint13"), NodePath("../../Checkpoints/Checkpoint15")])
+
+[node name="Left" parent="Colliders/Fork3" index="1"]
+transform = Transform3D(-4.09782e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.09782e-08, 20.2696, -4.46954, 20.9772)
+
+[node name="Right" parent="Colliders/Fork3" index="2"]
+transform = Transform3D(-1, 0, 8.75443e-08, 0, 1, 0, -8.75443e-08, 0, -1, 3.06219, -2.25941, 41.0675)
+
+[node name="Fork4" parent="Colliders" instance=ExtResource("14_edl5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2713, -57.1181, 432.894)
+left_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint16"), NodePath("../../Checkpoints/Checkpoint18"), NodePath("../../Checkpoints/Checkpoint21")])
+right_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint14"), NodePath("../../Checkpoints/Checkpoint17"), NodePath("../../Checkpoints/Checkpoint19"), NodePath("../../Checkpoints/Checkpoint20")])
+
+[node name="Left" parent="Colliders/Fork4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.473, -8.46569, 38.7135)
+
+[node name="Right" parent="Colliders/Fork4" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03322, -7.70729, 37.8639)
+
+[node name="Fork5" parent="Colliders" instance=ExtResource("14_edl5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.269, -151.07, 1013.19)
+mode = -1
+left_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint29"), NodePath("../../Checkpoints/Finish")])
+right_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/SmallFinish")])
+
+[node name="Left" parent="Colliders/Fork5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.731926, -1.55826, 44.4154)
+
+[node name="Right" parent="Colliders/Fork5" index="2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.4451, -3.90761, 39.0881)
+
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="stone_tallA" parent="Environment" instance=ExtResource("8_uoc4l")]
@@ -384,3 +431,8 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 31.5619, -66.3528, 436.752
 
 [node name="tree_blocks_dark5" parent="Environment" instance=ExtResource("17_urnxt")]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 31.5619, -93.5924, 617.895)
+
+[editable path="Colliders/Fork2"]
+[editable path="Colliders/Fork3"]
+[editable path="Colliders/Fork4"]
+[editable path="Colliders/Fork5"]
