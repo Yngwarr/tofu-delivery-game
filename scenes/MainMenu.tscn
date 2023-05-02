@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4551ljsw43dm"]
+[gd_scene load_steps=21 format=3 uid="uid://b4551ljsw43dm"]
 
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="1_nxye5"]
 [ext_resource type="PackedScene" uid="uid://bip5ewt4nuwq" path="res://models/nature/tree_pineDefaultA.glb" id="2_pudfy"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://ddctu8nkhnnjs" path="res://models/nature/stone_tallE.glb" id="6_iyxgc"]
 [ext_resource type="PackedScene" uid="uid://jiy2sfahuv0x" path="res://models/nature/stone_largeE.glb" id="7_23u0g"]
 [ext_resource type="PackedScene" uid="uid://dejythevaknv7" path="res://models/nature/stone_largeD.glb" id="8_vmoka"]
+[ext_resource type="Script" path="res://src/ButtonStart.gd" id="10_w73st"]
+[ext_resource type="PackedScene" uid="uid://ucubnjga7flw" path="res://scenes/Game.tscn" id="11_rc4kc"]
+[ext_resource type="Script" path="res://src/ButtonExit.gd" id="12_mwo6s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aq2cb"]
 albedo_color = Color(0.172549, 0.45098, 0.294118, 1)
@@ -16,9 +19,6 @@ uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3bg0a"]
 size = Vector2(40, 40)
-
-[sub_resource type="LabelSettings" id="LabelSettings_2bqef"]
-font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_7cdkc"]
 font_size = 60
@@ -126,24 +126,10 @@ offset_right = 121.0
 offset_bottom = 39.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="MenuButtons/ButtonStart"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -31.0
-offset_right = 104.0
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "Start"
-label_settings = SubResource("LabelSettings_2bqef")
-horizontal_alignment = 1
-vertical_alignment = 1
+script = ExtResource("10_w73st")
+next_scene = ExtResource("11_rc4kc")
 
 [node name="ButtonCredits" type="Button" parent="MenuButtons"]
 anchors_preset = 8
@@ -157,24 +143,8 @@ offset_right = 121.0
 offset_bottom = 140.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="MenuButtons/ButtonCredits"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -31.0
-offset_right = 104.0
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "Credits"
-label_settings = SubResource("LabelSettings_2bqef")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ButtonExit" type="Button" parent="MenuButtons"]
 anchors_preset = 8
@@ -188,24 +158,9 @@ offset_right = 121.0
 offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="MenuButtons/ButtonExit"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -31.0
-offset_right = 104.0
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "Exit"
-label_settings = SubResource("LabelSettings_2bqef")
-horizontal_alignment = 1
-vertical_alignment = 1
+script = ExtResource("12_mwo6s")
 
 [node name="Header" type="Label" parent="MenuButtons"]
 anchors_preset = -1
