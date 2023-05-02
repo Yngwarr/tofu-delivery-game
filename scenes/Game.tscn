@@ -589,10 +589,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 4.9738e-14, 5.32907e-15, 1, 4.00096, -
 material_override = ExtResource("11_4av16")
 
 [node name="mount13" parent="." instance=ExtResource("29_q52s7")]
-transform = Transform3D(-3.52738, -0.527171, 3.50424, -0.739047, 4.94508, 2.22045e-15, -3.46574, -0.517959, -3.56656, 83.8804, -149.927, 1249.33)
+transform = Transform3D(-3.56625, 0, 3.50455, 0, 5, 0, -3.50454, 0, -3.56626, 83.8804, -160.683, 1249.33)
 
 [node name="Plane" parent="mount13" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 4.9738e-14, 5.32907e-15, 1, 4.00096, -4.77998, -4.8018)
+transform = Transform3D(1, 7.45058e-09, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 4.00096, -4.77998, -4.8018)
 material_override = ExtResource("11_4av16")
 
 [node name="mount15" parent="." instance=ExtResource("29_q52s7")]

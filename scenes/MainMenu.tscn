@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4551ljsw43dm"]
+[gd_scene load_steps=22 format=3 uid="uid://b4551ljsw43dm"]
 
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="1_nxye5"]
 [ext_resource type="PackedScene" uid="uid://bip5ewt4nuwq" path="res://models/nature/tree_pineDefaultA.glb" id="2_pudfy"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://src/ButtonStart.gd" id="10_w73st"]
 [ext_resource type="PackedScene" uid="uid://ucubnjga7flw" path="res://scenes/Game.tscn" id="11_rc4kc"]
 [ext_resource type="Script" path="res://src/ButtonExit.gd" id="12_mwo6s"]
+[ext_resource type="Script" path="res://src/ButtonCredits.gd" id="12_v6e5v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aq2cb"]
 albedo_color = Color(0.172549, 0.45098, 0.294118, 1)
@@ -131,7 +132,7 @@ text = "Start"
 script = ExtResource("10_w73st")
 next_scene = ExtResource("11_rc4kc")
 
-[node name="ButtonCredits" type="Button" parent="MenuButtons"]
+[node name="ButtonCredits" type="Button" parent="MenuButtons" node_paths=PackedStringArray("window")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -145,6 +146,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Credits"
+script = ExtResource("12_v6e5v")
+window = NodePath("../../CreditsWindow")
 
 [node name="ButtonExit" type="Button" parent="MenuButtons"]
 anchors_preset = 8
@@ -190,10 +193,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -270.5
-offset_top = -291.5
-offset_right = 270.5
-offset_bottom = 291.5
+offset_left = -279.0
+offset_top = -136.0
+offset_right = 299.0
+offset_bottom = 153.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -204,23 +207,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -229.5
-offset_top = -279.5
-offset_right = 229.5
-offset_bottom = 279.5
+offset_left = -278.0
+offset_top = -105.5
+offset_right = 291.0
+offset_bottom = 113.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "CREDITS: 
-* Yngwarr, Syudzius - game
-* SRCoder for car default values and camera script (via https://youtu.be/6A6tp-rKy3Y?list=PLbxeTux6kwSD8z4BQH_mJZDclkrRKyw1A);
-* Kenney.nl for:
-	* prototype textures (via https://kenney.nl/assets/prototype-textures)
-	* car models (via https://kenney.nl/assets/car-kit)
-* AgneTheGreat for car engine simulator (via https://github.com/Engine-Simulator/engine-sim-community-edition)
-* qubodup for a skid sound (via https://opengameart.org/content/car-tire-squeal-skid-loop)
-* Andreas Viklund for background music (via http://modarchive.org/index.php?request=view_by_moduleid&query=34322, modified)"
+* Yngvarr, Syudzius - game
+* SRCoder for car default values and camera script
+* Kenney.nl for prototype textures, car models, environment
+details and road tiles
+* AgneTheGreat for car engine simulator
+* qubodup for a skid sound
+* Andreas Viklund for background music"
 label_settings = SubResource("LabelSettings_tgdeo")
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 text_overrun_behavior = 1
@@ -234,5 +235,7 @@ offset_left = -50.0
 offset_bottom = 49.0
 grow_horizontal = 0
 text = "Close"
+
+[connection signal="pressed" from="CreditsWindow/Panel/Button" to="CreditsWindow" method="hide"]
 
 [editable path="MeshInstance3D/terrain"]
