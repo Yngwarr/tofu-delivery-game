@@ -1,33 +1,115 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4551ljsw43dm"]
+[gd_scene load_steps=19 format=3 uid="uid://b4551ljsw43dm"]
 
 [ext_resource type="PackedScene" uid="uid://u8myc7bt2m1t" path="res://models/cars/truckFlat.glb" id="1_nxye5"]
+[ext_resource type="PackedScene" uid="uid://bip5ewt4nuwq" path="res://models/nature/tree_pineDefaultA.glb" id="2_pudfy"]
+[ext_resource type="PackedScene" uid="uid://xx4pfh80qf33" path="res://models/nature/tree_pineDefaultB.glb" id="3_4kd5c"]
+[ext_resource type="PackedScene" uid="uid://clhlk046se2ui" path="res://scenes/Headlight.tscn" id="3_yd071"]
+[ext_resource type="PackedScene" uid="uid://besy1pergldkp" path="res://models/terrain.glb" id="4_8jakk"]
+[ext_resource type="PackedScene" uid="uid://nko00vg764c6" path="res://models/tofu.glb" id="5_81otd"]
+[ext_resource type="PackedScene" uid="uid://ddctu8nkhnnjs" path="res://models/nature/stone_tallE.glb" id="6_iyxgc"]
+[ext_resource type="PackedScene" uid="uid://jiy2sfahuv0x" path="res://models/nature/stone_largeE.glb" id="7_23u0g"]
+[ext_resource type="PackedScene" uid="uid://dejythevaknv7" path="res://models/nature/stone_largeD.glb" id="8_vmoka"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aq2cb"]
 albedo_color = Color(0.172549, 0.45098, 0.294118, 1)
 uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3bg0a"]
-size = Vector2(200, 1300)
+size = Vector2(40, 40)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2bqef"]
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_7cdkc"]
 font_size = 60
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnan3"]
+sky_top_color = Color(0.141176, 0, 0.454902, 1)
+sky_horizon_color = Color(0.396078, 0.270588, 0.0823529, 1)
+sky_curve = 0.0750001
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_exjf4"]
+sky_material = SubResource("ProceduralSkyMaterial_pnan3")
+
+[sub_resource type="Environment" id="Environment_gnbvp"]
+background_mode = 2
+background_color = Color(0.290196, 0.282353, 1, 1)
+sky = SubResource("Sky_exjf4")
+sky_custom_fov = 23.6
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0nkdw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tgdeo"]
+font_size = 18
+
 [node name="Node3D" type="Node3D"]
 
 [node name="truckFlat" parent="." instance=ExtResource("1_nxye5")]
-transform = Transform3D(-0.309017, 0, -0.951057, 0, 1, 0, 0.951057, 0, -0.309017, -3, 0, -4.086)
+transform = Transform3D(-0.309017, 0, -0.951057, 0, 1, 0, 0.951057, 0, -0.309017, -2.338, 0, -4.086)
+
+[node name="tofu" parent="truckFlat" instance=ExtResource("5_81otd")]
+transform = Transform3D(-0.0247647, 0, 0.499386, 0, 0.5, 0, -0.499386, 0, -0.0247647, 0.0179131, 0.597885, 0.731647)
+
+[node name="tofu2" parent="truckFlat" instance=ExtResource("5_81otd")]
+transform = Transform3D(-0.386483, 0, 0.317224, 0, 0.5, 0, -0.317224, 0, -0.386483, -0.811864, 0, -4.21118)
+
+[node name="Headlight" parent="truckFlat" instance=ExtResource("3_yd071")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.445456, 0.546237, -1.2859)
+light_specular = 0.1
+
+[node name="Headlight2" parent="truckFlat" instance=ExtResource("3_yd071")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.405722, 0.546237, -1.2859)
+light_specular = 0.1
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49198, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.492, -0.198)
+fov = 60.0
+far = 50.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.944411, 0, 0.328768, -0.166758, 0.861815, 0.479026, -0.283337, -0.507223, 0.813908, 0, 10, 5)
-light_color = Color(0.301961, 0.133333, 1, 1)
+light_color = Color(0.388235, 0.392157, 1, 1)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45894, 0, -4.25841)
 material_override = SubResource("StandardMaterial3D_aq2cb")
 mesh = SubResource("PlaneMesh_3bg0a")
+
+[node name="tree_pineDefaultA" parent="MeshInstance3D" instance=ExtResource("2_pudfy")]
+transform = Transform3D(1.99993, 0.0169295, 0, -0.0169295, 1.99993, 0, 0, 0, 2, -0.622393, -0.433126, -2.61401)
+
+[node name="tree_pineDefaultA2" parent="MeshInstance3D" instance=ExtResource("2_pudfy")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.70316, -0.913206, -1.37981)
+
+[node name="tree_pineDefaultB" parent="MeshInstance3D" instance=ExtResource("3_4kd5c")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.34434, -0.237039, -1.87276)
+
+[node name="stone_tallE" parent="MeshInstance3D" instance=ExtResource("6_iyxgc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21428, 0, -1.4505)
+
+[node name="stone_largeE" parent="MeshInstance3D" instance=ExtResource("7_23u0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29076, 0, -0.475791)
+
+[node name="stone_largeD" parent="MeshInstance3D" instance=ExtResource("8_vmoka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51274, 0, -1.87933)
+
+[node name="terrain" parent="MeshInstance3D" instance=ExtResource("4_8jakk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51697, 0, -11.0871)
+
+[node name="Cube001" parent="MeshInstance3D/terrain" index="1"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 3, 0, 3.01992e-07, 0, -2, -8.38856, 0.067924, -3.0373)
+visible = false
+
+[node name="Cube002" parent="MeshInstance3D/terrain" index="2"]
+transform = Transform3D(1.76866, -0.0586552, -0.932912, -0.00156618, 2.99718, -0.0867214, 0.93373, 0.116131, 1.76696, -4.75171, -0.358181, 3.34873)
+
+[node name="Cube003" parent="MeshInstance3D/terrain" index="3"]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 2, -11.4803, 1.39448, -4.13623)
+
+[node name="Cube004" parent="MeshInstance3D/terrain" index="4"]
+transform = Transform3D(-2.05828, 0, 1.69599, 0, 4, 0, -1.69599, 0, -2.05828, -29.6936, 0.642996, -2.10511)
 
 [node name="MenuButtons" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -38,13 +120,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -39.0
-offset_right = 105.0
-offset_bottom = 21.0
+offset_left = -121.0
+offset_top = -39.5
+offset_right = 121.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuButtons/ButtonStart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -31.0
+offset_right = 104.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
+label_settings = SubResource("LabelSettings_2bqef")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonCredits" type="Button" parent="MenuButtons"]
 anchors_preset = 8
@@ -52,13 +151,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = 57.0
-offset_right = 105.0
-offset_bottom = 117.0
+offset_left = -121.0
+offset_top = 61.5
+offset_right = 121.0
+offset_bottom = 140.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuButtons/ButtonCredits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -31.0
+offset_right = 104.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Credits"
+label_settings = SubResource("LabelSettings_2bqef")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonExit" type="Button" parent="MenuButtons"]
 anchors_preset = 8
@@ -66,15 +182,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = 149.0
-offset_right = 105.0
-offset_bottom = 209.0
+offset_left = -121.0
+offset_top = 156.0
+offset_right = 121.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuButtons/ButtonExit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -31.0
+offset_right = 104.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Exit"
+label_settings = SubResource("LabelSettings_2bqef")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="MenuButtons"]
+[node name="Header" type="Label" parent="MenuButtons"]
 anchors_preset = -1
 anchor_top = 0.054
 anchor_right = 1.0
@@ -88,3 +221,63 @@ Tofu Delivery"
 label_settings = SubResource("LabelSettings_7cdkc")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gnbvp")
+camera_attributes = SubResource("CameraAttributesPractical_0nkdw")
+
+[node name="CreditsWindow" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CreditsWindow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -291.5
+offset_right = 270.5
+offset_bottom = 291.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CreditsWindow/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -279.5
+offset_right = 229.5
+offset_bottom = 279.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CREDITS: 
+* Yngwarr, Syudzius - game
+* SRCoder for car default values and camera script (via https://youtu.be/6A6tp-rKy3Y?list=PLbxeTux6kwSD8z4BQH_mJZDclkrRKyw1A);
+* Kenney.nl for:
+	* prototype textures (via https://kenney.nl/assets/prototype-textures)
+	* car models (via https://kenney.nl/assets/car-kit)
+* AgneTheGreat for car engine simulator (via https://github.com/Engine-Simulator/engine-sim-community-edition)
+* qubodup for a skid sound (via https://opengameart.org/content/car-tire-squeal-skid-loop)
+* Andreas Viklund for background music (via http://modarchive.org/index.php?request=view_by_moduleid&query=34322, modified)"
+label_settings = SubResource("LabelSettings_tgdeo")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="Button" type="Button" parent="CreditsWindow/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 49.0
+grow_horizontal = 0
+text = "Close"
+
+[editable path="MeshInstance3D/terrain"]
