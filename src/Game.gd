@@ -8,6 +8,7 @@ extends Node3D
 
 @export_group("UI")
 @export var stopwatch_label: StopwatchLabel
+@export var game_over_screen: CanvasLayer
 
 func _ready():
 	start_collider.body_entered.connect(start_crossed)
@@ -19,3 +20,4 @@ func start_crossed(_car: Car):
 
 func player_finished():
 	stopwatch_label.stop()
+	game_over_screen.show()

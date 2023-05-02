@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ucubnjga7flw"]
+[gd_scene load_steps=40 format=3 uid="uid://ucubnjga7flw"]
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_827q4"]
 [ext_resource type="PackedScene" uid="uid://b3586j135yfbf" path="res://scenes/Car.tscn" id="1_ee4kg"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bip5ewt4nuwq" path="res://models/nature/tree_pineDefaultA.glb" id="10_qmw50"]
 [ext_resource type="Material" uid="uid://bn3ab5a4ynk1t" path="res://FloorMaterial.tres" id="11_4av16"]
 [ext_resource type="PackedScene" uid="uid://xx4pfh80qf33" path="res://models/nature/tree_pineDefaultB.glb" id="11_no28x"]
+[ext_resource type="Script" path="res://src/ButtonStart.gd" id="11_qxcsq"]
 [ext_resource type="PackedScene" uid="uid://c8majbdnhpmyo" path="res://models/nature/tree_pineTallB.glb" id="12_2odnt"]
 [ext_resource type="PackedScene" uid="uid://ct7ibmsln7e5w" path="res://scenes/Fork.tscn" id="14_edl5d"]
 [ext_resource type="PackedScene" uid="uid://c0857ljc4fvnr" path="res://models/nature/plant_bush.glb" id="16_ct8mb"]
@@ -62,12 +63,13 @@ fog_density = 0.001
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4702"]
 size = Vector3(26.3719, 17.3055, 4.21796)
 
-[node name="Game" type="Node3D" node_paths=PackedStringArray("checkpoint_ctl", "music_player", "start_collider", "stopwatch_label")]
+[node name="Game" type="Node3D" node_paths=PackedStringArray("checkpoint_ctl", "music_player", "start_collider", "stopwatch_label", "game_over_screen")]
 script = ExtResource("1_827q4")
 checkpoint_ctl = NodePath("Checkpoints")
 music_player = NodePath("MusicPlayer")
 start_collider = NodePath("Colliders/Start")
 stopwatch_label = NodePath("HUD/Stopwatch")
+game_over_screen = NodePath("GameOver")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_425g3")
@@ -168,6 +170,81 @@ texture = ExtResource("7_waoa5")
 [node name="Fwd" type="Sprite2D" parent="HUD/Sign"]
 position = Vector2(113.5, 93)
 texture = ExtResource("8_1oxkt")
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOver/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 85.0
+offset_bottom = 155.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Delivery completed!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GameOver/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -514.0
+offset_top = -37.0
+offset_right = 514.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Finally, you can go rest and do somehting you want to do. How about doing some laps on
+the local circuit? I'm not sure if you're interested, but you did great out there and I think,
+you have the potential. Anyway, thank you for the delivery! Hope you had fun!"
+
+[node name="Back" type="Button" parent="GameOver/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -137.0
+offset_right = -3.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Back to menu"
+script = ExtResource("11_qxcsq")
+next_scene_name = "res://scenes/MainMenu.tscn"
+
+[node name="Again" type="Button" parent="GameOver/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -137.0
+offset_right = 348.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Try again"
+script = ExtResource("11_qxcsq")
+next_scene_name = "res://scenes/Game.tscn"
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 2

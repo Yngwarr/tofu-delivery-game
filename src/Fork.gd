@@ -19,6 +19,7 @@ var right_checkpoints: Array[Checkpoint]
 @onready var left: Area3D = $Left
 @onready var right: Area3D = $Right
 
+var engaged = false
 var resolved = false
 
 func _ready():
@@ -34,9 +35,11 @@ func _ready():
 func car_enter(_car: Car):
 	if resolved: return
 	if silent: return
+	engaged = true
 	car_entered.emit(mode)
 
 func left_entered(_car: Car):
+	if !engaged: return
 	if resolved: return
 	resolved = true
 
@@ -46,6 +49,7 @@ func left_entered(_car: Car):
 		c.disappear()
 
 func right_entered(_car: Car):
+	if !engaged: return
 	if resolved: return
 	resolved = true
 
