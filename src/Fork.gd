@@ -10,6 +10,7 @@ enum Direction {FWD = 0, LEFT = -1, RIGHT = 1}
 @export var mode: Mode
 @export var left_checkpoint_paths: Array[NodePath]
 @export var right_checkpoint_paths: Array[NodePath]
+@export var silent = false
 
 var left_checkpoints: Array[Checkpoint]
 var right_checkpoints: Array[Checkpoint]
@@ -32,13 +33,15 @@ func _ready():
 
 func car_enter(_car: Car):
 	if resolved: return
+	if silent: return
 	car_entered.emit(mode)
 
 func left_entered(_car: Car):
 	if resolved: return
 	resolved = true
 
-	fork_resolved.emit(Direction.FWD if mode == Mode.LEFT_IS_FWD else Direction.LEFT)
+	if !silent:
+		fork_resolved.emit(Direction.FWD if mode == Mode.LEFT_IS_FWD else Direction.LEFT)
 	for c in right_checkpoints:
 		c.disappear()
 

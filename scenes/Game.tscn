@@ -195,8 +195,9 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2sxos")
 
-[node name="Checkpoints" type="Node3D" parent="."]
+[node name="Checkpoints" type="Node3D" parent="." node_paths=PackedStringArray("score_label")]
 script = ExtResource("7_gcnu8")
+score_label = NodePath("../HUD/Score")
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("7_alyof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.897514, -3.6405, 30.1931)
@@ -331,6 +332,7 @@ transform = Transform3D(-1, 0, 8.75443e-08, 0, 1, 0, -8.75443e-08, 0, -1, 3.0621
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2713, -57.1181, 432.894)
 left_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint16"), NodePath("../../Checkpoints/Checkpoint18"), NodePath("../../Checkpoints/Checkpoint21")])
 right_checkpoint_paths = Array[NodePath]([NodePath("../../Checkpoints/Checkpoint14"), NodePath("../../Checkpoints/Checkpoint17"), NodePath("../../Checkpoints/Checkpoint19"), NodePath("../../Checkpoints/Checkpoint20")])
+silent = true
 
 [node name="Left" parent="Colliders/Fork4" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.473, -8.46569, 38.7135)
